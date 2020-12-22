@@ -6,5 +6,7 @@ resources :parties
 
 resources :votes
 
+root "users#home"
+
 
 end
