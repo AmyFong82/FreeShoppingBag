@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-	has_many :parties
+	has_many :user_parties
+	has_many :parties, through: :user_parties
 	has_many :votes
 	has_many :drinks, through: :parties
 	has_many :snacks, through: :parties
