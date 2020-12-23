@@ -12,6 +12,6 @@ class User < ApplicationRecord
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 	validates :email, uniqueness: true
-	validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Please match the required format." }
+	validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "must match the required format." }
 
 end

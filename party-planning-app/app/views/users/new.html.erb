@@ -1,11 +1,38 @@
-<%= form_for @user do |f| %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
 
-First Name <%= f.text_field :first_name %>
-Last Name <%= f.text_field :last_name %><br><br>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-Phone <%= f.text_field :phone, placeholder: "123-45-6789" %> <span class="small">Format: 123-45-6789</span><br><br>
-Email <%= f.text_field :email %><br><br>
-Password <%= f.password_field :password %><br><br>
-
-<%= f.submit %>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone, placeholder: "123-45-6789" %><span class="small"> Format: 123-45-6789</span>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
+
