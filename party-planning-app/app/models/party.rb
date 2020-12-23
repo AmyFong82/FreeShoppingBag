@@ -5,5 +5,5 @@ class Party < ApplicationRecord
 	has_many :foods
 	has_many :drinks
 	has_many :activities
-
+	has_many :votes
 end
