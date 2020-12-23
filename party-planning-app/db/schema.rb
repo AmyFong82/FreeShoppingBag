@@ -14,14 +14,20 @@ ActiveRecord::Schema.define(version: 8) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
+    t.integer "party_id"
+    t.integer "vote_id"
   end
 
   create_table "drinks", force: :cascade do |t|
     t.string "name"
+    t.integer "party_id"
+    t.integer "vote_id"
   end
 
-  create_table "food", force: :cascade do |t|
+  create_table "foods", force: :cascade do |t|
     t.string "name"
+    t.integer "party_id"
+    t.integer "vote_id"
   end
 
   create_table "parties", force: :cascade do |t|
@@ -32,6 +38,8 @@ ActiveRecord::Schema.define(version: 8) do
 
   create_table "snacks", force: :cascade do |t|
     t.string "name"
+    t.integer "party_id"
+    t.integer "vote_id"
   end
 
   create_table "user_parties", force: :cascade do |t|

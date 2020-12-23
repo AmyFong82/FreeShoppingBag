@@ -14,7 +14,7 @@ Specs:
 		(A) User has_many Snacks through Parties, Party has_many Votes through Users.
 
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
-		(A) User has_many Snacks through Party, Snack has_many Users through Party.
+		(A) User has_many Snacks through Parties, Snack has_many Users through Parties.
 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
 		(A) User can submit party.name, party.date, party.time, party.location.

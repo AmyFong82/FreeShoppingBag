@@ -1,5 +1,5 @@
 class Food < ApplicationRecord
-	belongs_to :party
 	has_many :votes
-	has_many :users, through :votes
+	has_many :parties
+	has_many :users, through: :parties
 end
