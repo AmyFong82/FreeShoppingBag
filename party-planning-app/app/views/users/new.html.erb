@@ -1,0 +1,11 @@
+<%= form_for @user do |f| %>
+
+First Name <%= f.text_field :first_name %>
+Last Name <%= f.text_field :last_name %><br><br>
+
+Phone <%= f.text_field :phone, placeholder: "123-45-6789" %> <span class="small">Format: 123-45-6789</span><br><br>
+Email <%= f.text_field :email %><br><br>
+Password <%= f.password_field :password %><br><br>
+
+<%= f.submit %>
+<% end %>

@@ -8,5 +8,7 @@ resources :votes
 
 root "users#home"
 
+get "/signup" => "users#new"
+
 
 end
