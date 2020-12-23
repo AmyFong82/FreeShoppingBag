@@ -8,13 +8,15 @@
 
 
 5.times do |i|
-    User.create(first_name: "User-#{i}", last_name: "Name", phone: "111-222-33#{i}", email: "#{i}@email.com", password: "#{i}")
+    User.create(first_name: "User-#{i}", last_name: "Name", phone: "111-222-333#{i}", email: "#{i}@email.com", password: "#{i}")
   	Party.create(name: "#{i+1}-Party", date: DateTime.now+rand(10000+i), location: "#{i} Benson Avenue, Brooklyn, NY")
   	Food.create(name: "Dish-#{i+1}")
   	Snack.create(name: "Snack-#{i+1}")
   	Activity.create(name: "Activity-#{i+1}")
   	Drink.create(name: "Drink-#{i+1}")
 end
+
+    User.create(first_name: "User-T", last_name: "Name", phone: "111-222-3339", email: "9@email.com", password: "9")
 
 
 
