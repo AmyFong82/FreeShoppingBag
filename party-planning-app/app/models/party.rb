@@ -6,4 +6,6 @@ class Party < ApplicationRecord
 	has_many :drinks
 	has_many :activities
 	has_many :votes
+
+	validates :name, uniqueness: true
 end
