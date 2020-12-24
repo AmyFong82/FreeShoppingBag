@@ -4,6 +4,8 @@ class CreateParties < ActiveRecord::Migration[6.0]
       t.string :name
       t.datetime :date
       t.string :location
+
+      t.timestamps
     end
   end
 end

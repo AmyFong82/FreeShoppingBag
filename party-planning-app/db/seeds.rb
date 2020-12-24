@@ -16,7 +16,10 @@
   	Drink.create(name: "Drink-#{i+1}")
 end
 
-    User.create(first_name: "User-T", last_name: "Name", phone: "111-222-3339", email: "9@email.com", password: "9")
+    UserParty.create(party_id: 1, user_id: 1)
+    UserParty.create(party_id: 1, user_id: 2)
+    UserParty.create(party_id: 2, user_id: 1)
+    UserParty.create(party_id: 2, user_id: 3)
 
 
 

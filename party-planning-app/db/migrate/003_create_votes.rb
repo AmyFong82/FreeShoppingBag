@@ -7,6 +7,9 @@ class CreateVotes < ActiveRecord::Migration[6.0]
       t.integer :snack_id
       t.integer :drink_id
       t.integer :activity_id
+
+      t.timestamps
+
     end
   end
 end

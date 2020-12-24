@@ -1,0 +1,14 @@
+<div>
+	<p>Welcome to Party! <%= @user.first_name %></p>
+</div>
+
+<% if @parties %>
+<div>
+	<h3> You have joined <%= @parties.count %> parties!</h3>
+	<ul>
+		<%= @parties.each do |f| %>
+		<li><%= link_to f.name, party_path(f) %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>

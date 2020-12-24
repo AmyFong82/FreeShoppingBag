@@ -16,35 +16,47 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "name"
     t.integer "party_id"
     t.integer "vote_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "drinks", force: :cascade do |t|
     t.string "name"
     t.integer "party_id"
     t.integer "vote_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.integer "party_id"
     t.integer "vote_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.datetime "date"
     t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "snacks", force: :cascade do |t|
     t.string "name"
     t.integer "party_id"
     t.integer "vote_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_parties", force: :cascade do |t|
     t.integer "user_id"
     t.integer "party_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +65,8 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "phone"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "votes", force: :cascade do |t|
@@ -62,6 +76,8 @@ ActiveRecord::Schema.define(version: 8) do
     t.integer "snack_id"
     t.integer "drink_id"
     t.integer "activity_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

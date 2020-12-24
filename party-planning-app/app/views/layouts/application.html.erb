@@ -26,9 +26,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="/signup">Sign Up</a>
-            <a class="nav-link" href="#">Log In</a>
+            <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+            <% if current_user %>
+              <a class="navbar-brand" href="<%= root_url %><%= users_path %>"><%= current_user.first_name %>'s Parties</a>
+              <%= link_to "Log Out", '/logout', class:"navbar-brand", method:'post' %>
+            <% else %>
+              <a class="navbar-brand" href="<%= root_url %>signup">Sign Up</a>
+              <a class="navbar-brand" href="<%= root_url %>login">Log In</a>
+            <% end %>
           </div>
         </div>
       </div>

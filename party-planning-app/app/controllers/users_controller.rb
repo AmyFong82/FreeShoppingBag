@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
 	def home
 	end
 
@@ -11,10 +12,21 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
  
 	    if @user.save
-	      redirect user_path(@user)
+	      session[:user_id] = @user.id
+	      redirect_to user_path(@user)
 	    else
 	      render :new
 	    end
+	end
+
+	def show
+		if logged_in?
+			binding.pry
+			@user = User.find(session[:user_id])
+			@parties = @user.parties
+		else
+			redirect_to '/'
+		end
 	end
 
 

@@ -10,5 +10,10 @@ root "users#home"
 
 get "/signup" => "users#new"
 
+get '/login' => "sessions#create"
+
+post '/logout' => 'sessions#destroy'
+
+
 
 end
