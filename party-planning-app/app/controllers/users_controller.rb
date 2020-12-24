@@ -21,7 +21,6 @@ class UsersController < ApplicationController
 
 	def show
 		if logged_in?
-			binding.pry
 			@user = User.find(session[:user_id])
 			@parties = @user.parties
 		else
