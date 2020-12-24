@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 		if @user
 			if @user.authenticate(params[:user][:password])
 				session[:user_id] = @user.id
+				redirect_to user_path(@user)
 			else
 				flash[:alert] = "Password incorrect."
 				redirect_to '/login'
