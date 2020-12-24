@@ -23,8 +23,7 @@ class UsersController < ApplicationController
 			@user = User.find(session[:user_id])
 			@parties = @user.parties
 		else
-			flash[:notice] = "Please login!"
-			redirect_to '/'
+			redirect_to '/login'
 		end
 	end
 
