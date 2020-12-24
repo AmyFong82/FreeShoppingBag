@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
 	def home
 	end
 
@@ -24,6 +23,7 @@ class UsersController < ApplicationController
 			@user = User.find(session[:user_id])
 			@parties = @user.parties
 		else
+			flash[:notice] = "Please login!"
 			redirect_to '/'
 		end
 	end
