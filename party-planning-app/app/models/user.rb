@@ -14,4 +14,8 @@ class User < ApplicationRecord
 	validates :email, uniqueness: true
 	validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "must match the required format." }
 
+	def name
+		self.first_name + " " + self.last_name
+	end
+
 end

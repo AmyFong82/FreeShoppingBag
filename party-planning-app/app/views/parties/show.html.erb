@@ -3,5 +3,19 @@
 	<p>Date: <%= @party.date %></p>
 	<p>Time: <%= @party.time %></p>
 	<p>Location: <%= @party.location %></p>
-	<p>No. of People Attending: <%= @party.users.count %></p>
+	<p>How many people are going: <%= @party.users.count %></p>
+	<% if logged_in? %>
+	<p>Who are going: </p>
+	<ul>
+		<%= @party.users.each do |f| %>
+			<li><%= f.name %></li>
+		<% end %>
+	</ul>
+	<% end %>
 </div>
+
+<% if logged_in? %>
+  <div>
+  	<%= button_to("Join the party!", party_path(@party)) %>
+  </div>
+<% end %>
