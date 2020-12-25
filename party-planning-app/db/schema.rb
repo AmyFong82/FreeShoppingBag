@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 8) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
-    t.datetime "date"
+    t.string "date"
+    t.string "time"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
