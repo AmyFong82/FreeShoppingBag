@@ -7,7 +7,7 @@
 	<% if logged_in? %>
 	<p>Who are going: </p>
 	<ul>
-		<%= @party.users.each do |f| %>
+		<% @party.users.each do |f| %>
 			<li><%= f.name %></li>
 		<% end %>
 	</ul>

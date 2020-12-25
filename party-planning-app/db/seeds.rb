@@ -9,7 +9,7 @@
 
 5.times do |i|
     User.create(first_name: "User-#{i}", last_name: "Name", phone: "111-222-333#{i}", email: "#{i}@email.com", password: "#{i}")
-  	Party.create(name: "#{i+1}-Party", date: "1/#{i+1}/2021", time: "2:00pm", location: "#{i+1} Benson Avenue, Brooklyn, NY 11229")
+  	Party.create(name: "Party-#{i+1}", date: "1/#{i+1}/2021", time: "2:00pm", location: "#{i+1} Benson Avenue, Brooklyn, NY 11229")
   	Food.create(name: "Dish-#{i+1}")
   	Snack.create(name: "Snack-#{i+1}")
   	Activity.create(name: "Activity-#{i+1}")

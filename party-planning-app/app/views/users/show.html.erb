@@ -5,10 +5,10 @@
 <% if @parties %>
 	<div>
 		<h3> You have joined <%= @parties.count %> <%= 'party'.pluralize(@parties.count) %>!</h3>
-		<%= @parties.each do |f| %>
+		<% @parties.each do |f| %>
 		<ul>
 			<li><%= link_to f.name, party_path(f) %></li>
-			<% end %>
+		<% end %>
 		</ul>
 	</div>
 <% end %>
