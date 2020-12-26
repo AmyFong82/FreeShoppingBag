@@ -9,16 +9,20 @@ class PartiesController < ApplicationController
 	end
 
 	def index
-		if params[:user_id]
-			@parties = User.find(params[:user_id]).parties
+		if logged_in? && params[:user_id]
+			if current_user.parties.count == 0
+				@parties = Party.all
+			else
+				@parties = current_user.parties
+			end
 		else
 			@parties = Party.all
 		end
 	end
 
 	def show
-		if params[:user_id]
-			@party = User.find(params[:user_id]).parties.find(params[:id])
+		if params[:user_id] 
+			@party = current_user.parties.find(params[:id])
 		else
 			@party = Party.find(params[:id])
 		end
@@ -28,6 +32,7 @@ class PartiesController < ApplicationController
 		if logged_in?
 			@party = Party(params[:id])
 			current_user.parties << @party
+			redirect_to user_parties_path(current_user)
 		end
 	end
 

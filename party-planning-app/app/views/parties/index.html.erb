@@ -1,12 +1,14 @@
-<div>
-	<h2>Join A Party!</h2>
-</div>
+<% if logged_in? && current_user.parties.count == 0 || !logged_in?%>
+	<div>
+		<h2>Join A Party!</h2>
+	</div>
+<% end %>
 
-<div class="list-group">
-	<% @parties.each do |f| %>
-	    <a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
-	<% end %>
-</div>
+	<div class="list-group">
+		<% @parties.each do |f| %>
+		    <a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
+		<% end %>
+	</div>
 
 <% if !logged_in? %>
   <div>

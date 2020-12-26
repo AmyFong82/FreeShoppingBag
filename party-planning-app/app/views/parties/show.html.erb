@@ -17,7 +17,7 @@
 <% if logged_in? %>
 	<% if !@party.users.include?(current_user) %>
 	  <div>
-	  	<%= button_to("Join the party!", party_path(@party), class: "btn btn-primary") %>
+	  	<%= button_to "Join the party!", @party, :method => :create, class: "btn btn-primary" %>
 	  </div>
 	<% else %>
 	  <div>
