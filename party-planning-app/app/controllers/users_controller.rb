@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 
 	def home
+		if session[:user_id]
+			redirect_to user_parties_path(current_user)
+		end
+
 	end
 
 	def new

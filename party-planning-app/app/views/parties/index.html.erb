@@ -1,5 +1,6 @@
 <% if logged_in? && current_user.parties.count == 0 || !logged_in?%>
 	<div>
+		<h4><%= current_user.first_name %>, you have not joined any parties yet.</h4>
 		<h2>Join A Party!</h2>
 	</div>
 <% end %>

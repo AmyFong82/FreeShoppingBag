@@ -9,7 +9,7 @@ class PartiesController < ApplicationController
 	end
 
 	def index
-		if logged_in? && params[:user_id]
+		if params[:user_id]
 			if current_user.parties.count == 0
 				@parties = Party.all
 			else
@@ -29,7 +29,7 @@ class PartiesController < ApplicationController
 	end
 
 	def create
-		if logged_in?
+		if params[:user_id]
 			@party = Party(params[:id])
 			current_user.parties << @party
 			redirect_to user_parties_path(current_user)
@@ -37,7 +37,7 @@ class PartiesController < ApplicationController
 	end
 
 	def destroy
-		if logged_in?
+		if params[:user_id]
 			@party = current_user.parties.find(params[:id])
 			current_user.parties.delete(@party)
 			redirect_to user_path(current_user)
