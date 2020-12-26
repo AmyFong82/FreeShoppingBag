@@ -21,7 +21,7 @@
 	  </div>
 	<% else %>
 	  <div>
-	  	<%= button_to("Can't make it.", party_path(@party), class: "btn btn-primary") %>
+		<%= button_to "Can't make it.", @party, :method => :delete, class: "btn btn-primary"%>
 	  </div>
 	<% end %>
 <% else %>

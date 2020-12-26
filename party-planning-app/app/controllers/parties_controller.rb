@@ -1,5 +1,4 @@
 class PartiesController < ApplicationController
-	include PartiesHelper
 
 	def new
 		if params[:user_id] && !User.exitst?(params[:user_id])
@@ -22,6 +21,21 @@ class PartiesController < ApplicationController
 			@party = User.find(params[:user_id]).parties.find(params[:id])
 		else
 			@party = Party.find(params[:id])
+		end
+	end
+
+	def create
+		if logged_in?
+			@party = Party(params[:id])
+			current_user.parties << @party
+		end
+	end
+
+	def destroy
+		if logged_in?
+			@party = current_user.parties.find(params[:id])
+			current_user.parties.delete(@party)
+			redirect_to user_path(current_user)
 		end
 	end
 
