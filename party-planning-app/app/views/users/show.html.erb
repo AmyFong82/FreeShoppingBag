@@ -1,14 +1,18 @@
 <div>
-	<p>Welcome to Party! <%= @user.first_name %></p>
+	<h3>Welcome to Party! <%= @user.first_name %></h3>
 </div>
 
-<% if @parties %>
+<% if @parties.count > 0 %>
 	<div>
-		<h3> You have joined <%= @parties.count %> <%= 'party'.pluralize(@parties.count) %>!</h3>
-		<ul>
-			<% @parties.each do |f| %>
-			<li><%= link_to f.name, user_party_path(@user, f) %></li>
-			<% end %>
-		</ul>
+		 <h3> You have joined <%= @parties.count %> <%= 'party'.pluralize(@parties.count) %>!</h3>
+			<div class="list-group">
+				<% @parties.each do |f| %>
+				    <a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
+				<% end %>
+			</div>
+	</div>
+<% else %>
+	<div>
+		<p>Explore Parties.</p>
 	</div>
 <% end %>
