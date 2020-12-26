@@ -8,4 +8,5 @@ class Party < ApplicationRecord
 	has_many :votes
 
 	validates :name, uniqueness: true
+
 end

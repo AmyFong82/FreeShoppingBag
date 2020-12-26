@@ -1,4 +1,5 @@
 class PartiesController < ApplicationController
+	include PartiesHelper
 
 	def new
 		if params[:user_id] && !User.exitst?(params[:user_id])

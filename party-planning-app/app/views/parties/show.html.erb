@@ -15,7 +15,21 @@
 </div>
 
 <% if logged_in? %>
+	<% if !@party.users.include?(current_user) %>
+	  <div>
+	  	<%= button_to("Join the party!", party_path(@party), class: "btn btn-primary") %>
+	  </div>
+	<% else %>
+	  <div>
+	  	<%= button_to("Can't make it.", party_path(@party), class: "btn btn-primary") %>
+	  </div>
+	<% end %>
+<% else %>
   <div>
-  	<%= button_to("Join the party!", party_path(@party)) %>
+  	<a class="btn btn-primary" href='/login' role="button">Login to Join!</a>
+  </div>
+  <div>
+  	<p>Don't have an account?</p>
+  	<a class="btn btn-primary" href='/signup' role="button">Sign Up!</a>
   </div>
 <% end %>
