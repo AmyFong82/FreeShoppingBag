@@ -7,7 +7,7 @@
 
 	<div class="list-group">
 		<% @parties.each do |f| %>
-		    <a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
+		    <a><%= link_to f.name, user_parties_path(f), class: "list-group-item list-group-item-action" %></a>
 		<% end %>
 	</div>
 

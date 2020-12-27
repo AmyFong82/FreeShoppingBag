@@ -29,8 +29,8 @@ class PartiesController < ApplicationController
 	end
 
 	def create
-		if params[:user_id]
-			@party = Party(params[:id])
+		if logged_in?
+			@party = Party.find(params[:id])
 			current_user.parties << @party
 			redirect_to user_parties_path(current_user)
 		end
@@ -47,7 +47,7 @@ class PartiesController < ApplicationController
 	private
 
 	def party_params
-		params.require(:party).permit(:name, :date, :time, :location, :user_id)
+		params.require(:party).permit(:name, :date, :time, :location, :user_id[])
 	end
 
 end
