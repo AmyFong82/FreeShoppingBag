@@ -1,13 +1,10 @@
-<% if logged_in? && current_user.parties.count == 0 || !logged_in?%>
-	<div>
-		<h4><%= current_user.first_name %>, you have not joined any parties yet.</h4>
-		<h2>Join A Party!</h2>
-	</div>
-<% end %>
+<div>
+	<h4>Hi, see if you want to join any of the parties below.</h4>
+</div>
 
 	<div class="list-group">
 		<% @parties.each do |f| %>
-		    <a><%= link_to f.name, user_parties_path(f), class: "list-group-item list-group-item-action" %></a>
+		    <a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
 		<% end %>
 	</div>
 

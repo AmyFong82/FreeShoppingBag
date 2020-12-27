@@ -18,4 +18,13 @@ class User < ApplicationRecord
 		self.first_name + " " + self.last_name
 	end
 
+	def num_of_parties
+		num = self.parties.count
+		if num == 0
+			"Check out our parties to join."
+		else
+			"You are going to #{num} " + 'party'.pluralize(num) + "."
+		end
+	end
+
 end

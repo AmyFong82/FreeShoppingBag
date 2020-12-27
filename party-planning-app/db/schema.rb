@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "date"
     t.string "time"
     t.string "location"
+    t.string "organizer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
