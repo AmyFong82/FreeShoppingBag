@@ -1,8 +1,10 @@
 class PartiesController < ApplicationController
 
 	def new
-		if params[:user_id] && !User.exitst?(params[:user_id])
-			redirect_to '/login', alert: "User not found."
+		# if params[:user_id] && !User.exist?(params[:user_id])
+		# 	redirect_to '/login', alert: "User not found."
+		if session[:user_id]
+
 		else
 			@party = Party.new(user_id: params[:user_id])
 		end
@@ -55,7 +57,7 @@ class PartiesController < ApplicationController
 	private
 
 	def party_params
-		params.require(:party).permit(:name, :date, :time, :location, :organizer, :user_id)
+		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :user_id)
 	end
 
 end

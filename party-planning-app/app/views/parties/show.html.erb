@@ -17,11 +17,14 @@
 <% if logged_in? %>
 	<% if !@party.users.include?(current_user) %>
 	  <div>
-		<%= button_to "Join the party!", user_party_path(@party.id), :method => :patch, class: "btn btn-primary" %>
+	  	<%= form_for(@party, url: user_party_path(current_user)) do |f| %>
+	  	<%= f.hidden_field :id %>
+		<%= f.submit "Join the party!", class: "btn btn-primary" %>
+		<% end %>
 	  </div>
 	<% else %>
 	  <div>
-		<%= button_to "Can't make it.", user_party_path(@party.id), method: "delete", class: "btn btn-primary"%>
+		<%= button_to "Can't make it.", user_parties_path(@party.id), method: "delete", class: "btn btn-primary"%>
 	  </div>
 	<% end %>
 <% else %>
