@@ -24,15 +24,15 @@
 	  </div>
 	<% else %>
 	  <div>
-		<%= button_to "Can't make it.", user_parties_path(@party.id), method: "delete", class: "btn btn-primary"%>
+		<%= button_to "Can't make it.", user_party_path(@party.id), method: "delete", class: "btn btn-primary"%>
 	  </div>
 	<% end %>
 <% else %>
   <div>
-  	<a class="btn btn-primary" href='/login' role="button">Login to Join!</a>
+  	<a class="btn btn-primary" href='/login' role="button">Login</a>
   </div>
   <div>
   	<p>Don't have an account?</p>
-  	<a class="btn btn-primary" href='/signup' role="button">Sign Up!</a>
+  	<a class="btn btn-primary" href='/signup' role="button">Sign Up</a>
   </div>
 <% end %>
