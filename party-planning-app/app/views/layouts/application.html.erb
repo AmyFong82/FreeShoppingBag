@@ -27,7 +27,7 @@
           <div class="navbar-nav">
             <a class="navbar-brand" href="<%= root_url %><%= parties_path %>"/>Explore</a>
             <% if logged_in? %>
-              <a class="navbar-brand" href="<%= root_url %><%= user_parties_path(current_user) %>">Your Parties</a>
+              <a class="navbar-brand" href="<%= root_url %><%= user_path(current_user) %>">Your Parties</a>
               <%= link_to "Log Out", '/logout', class:"navbar-brand", method:'post' %>
             <% else %>
               <a class="navbar-brand" href="<%= root_url %>signup">Sign Up</a>

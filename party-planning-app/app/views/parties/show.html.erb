@@ -17,12 +17,11 @@
 <% if logged_in? %>
 	<% if !@party.users.include?(current_user) %>
 	  <div>
-
-	  	<%= button_to "Join the party!", user_parties_path(current_user), :method => :create, params: {'id' => @party.id}, class: "btn btn-primary" %>
+		<%= button_to "Join the party!", user_party_path(@party.id), :method => :patch, class: "btn btn-primary" %>
 	  </div>
 	<% else %>
 	  <div>
-		<%= button_to "Can't make it.", {controller: :parties, action: :destroy}, method: "delete", class: "btn btn-primary"%>
+		<%= button_to "Can't make it.", user_party_path(@party.id), method: "delete", class: "btn btn-primary"%>
 	  </div>
 	<% end %>
 <% else %>

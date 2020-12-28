@@ -32,6 +32,14 @@ class PartiesController < ApplicationController
 		if logged_in?
 			@party = Party.find(params[:id])
 			current_user.parties << @party
+			redirect_to user_path(current_user)
+		end
+	end
+
+	def update
+		if params[:user_id]
+			@party = Party.find(params[:id])
+			@party.users << current_user
 			redirect_to user_parties_path(current_user)
 		end
 	end
