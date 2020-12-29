@@ -23,10 +23,19 @@ class PartiesController < ApplicationController
 
 	def create
 		if logged_in?
-			@party = Party.find(params[:id])
-			current_user.parties << @party
-			redirect_to user_path(current_user)
+			@party = Party.new(party_params)
+			if @party.save
+				redirect_to party_path(@party)
+			else
+				render :new
+			end
 		end
+
+		# if logged_in?
+		# 	@party = Party.find(params[:id])
+		# 	current_user.parties << @party
+		# 	redirect_to user_path(current_user)
+		# end
 	end
 
 	def update

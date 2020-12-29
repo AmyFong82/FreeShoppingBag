@@ -1,7 +1,31 @@
 <%= form_for @party do |f| %>
+	<% if @party.errors.any? %>
+	  <div id="error_explanation">
+	    <h2>
+	      <%= pluralize(@party.errors.count, "error") %>
+	      prohibited this party from being saved:
+	    </h2>
+	 
+	    <ul>
+	    <% @party.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+  <div class="field">
 	Party name: <%= f.text_field :name %><br>
+  </div>
+  <div class="field">
 	Date: <%= f.date_field :date %><br>
+  </div>
+  <div class="field">
 	Time: <%= f.time_field :time %><br>
+  </div>
+  <div class="field">
 	Location: <%= f.text_area :location %><br>
+  </div>
+  <div class="actions">
 	<%= f.submit %>
+  </div>
 <% end %>
