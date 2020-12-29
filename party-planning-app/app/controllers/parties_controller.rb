@@ -4,10 +4,9 @@ class PartiesController < ApplicationController
 		# if params[:user_id] && !User.exist?(params[:user_id])
 		# 	redirect_to '/login', alert: "User not found."
 		if session[:user_id]
-
-		else
-			@party = Party.new(user_id: params[:user_id])
+			@user = current_user
 		end
+		@party = Party.new
 	end
 
 	def index

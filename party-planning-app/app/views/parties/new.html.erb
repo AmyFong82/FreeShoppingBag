@@ -1,0 +1,7 @@
+<%= form_for @party do |f| %>
+	Party name: <%= f.text_field :name %><br>
+	Date: <%= f.date_field :date %><br>
+	Time: <%= f.time_field :time %><br>
+	Location: <%= f.text_area :location %><br>
+	<%= f.submit %>
+<% end %>

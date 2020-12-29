@@ -7,7 +7,7 @@
 		 <h4> <%= @user.num_of_parties %></h4>
 			<div class="list-group">
 				<% @parties.each do |f| %>
-				    <a><%= link_to f.name, user_party_path(current_user, f), class: "list-group-item list-group-item-action" %></a>
+				    <%= link_to f.name, user_party_path(current_user, f), class: "list-group-item list-group-item-action" %>
 				<% end %>
 			</div>
 	</div>
@@ -16,3 +16,7 @@
   		<a class="btn btn-primary" href='/parties' role="button">Explore Parties!</a>
 	</div>
 <% end %>
+
+<div>
+	<%= link_to "Start Your Own Party!", new_user_party_path(@user), class: "btn btn-primary", role: "button" %>
+</div>

@@ -24,6 +24,7 @@ Specs:
 
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 	(A) User.name, User.num_of_parties
+	Not done yet!!
 
 - [x] Include signup
 	(A) User can signup at "/signup"
