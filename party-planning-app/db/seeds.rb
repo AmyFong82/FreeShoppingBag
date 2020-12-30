@@ -16,10 +16,15 @@
   	Drink.create(name: "Drink-#{i+1}")
 end
 
-    UserParty.create(party_id: 1, user_id: 1)
-    UserParty.create(party_id: 1, user_id: 2)
-    UserParty.create(party_id: 2, user_id: 1)
-    UserParty.create(party_id: 2, user_id: 3)
+UserParty.create(user_id: 1, party_id: 1)
+UserParty.create(user_id: 2, party_id: 2)
+UserParty.create(user_id: 3, party_id: 3)
+UserParty.create(user_id: 4, party_id: 4)
+UserParty.create(user_id: 5, party_id: 5)
 
-
+UserParty.create(user_id: 1, party_id: 2)
+UserParty.create(user_id: 2, party_id: 3)
+UserParty.create(user_id: 3, party_id: 4)
+UserParty.create(user_id: 4, party_id: 5)
+UserParty.create(user_id: 5, party_id: 1)
 

@@ -31,12 +31,6 @@ class PartiesController < ApplicationController
 				render :new
 			end
 		end
-
-		# if logged_in?
-		# 	@party = Party.find(params[:id])
-		# 	current_user.parties << @party
-		# 	redirect_to user_path(current_user)
-		# end
 	end
 
 	def update
@@ -51,6 +45,10 @@ class PartiesController < ApplicationController
 		if params[:user_id]
 			@party = current_user.parties.find(params[:id])
 			current_user.parties.delete(@party)
+			redirect_to user_path(current_user)
+		else
+			@party = Party.find(params[:id])
+			Party.delete(@party)
 			redirect_to user_path(current_user)
 		end
 	end

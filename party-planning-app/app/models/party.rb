@@ -21,8 +21,6 @@ class Party < ApplicationRecord
 	    end
 	end
 
-
-
 	def address_validation
 		if location.present? && !(/\s[a-zA-Z]{2}\s\d{5}\z/).match?(location) && location.length < 12
 			errors.add(:location, "must be a valid US address.")

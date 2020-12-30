@@ -5,6 +5,7 @@
 	<p>Location: <%= @party.location %></p>
 	<p>How many people are going: <%= @party.users.count %></p>
 	<% if logged_in? %>
+	<P>Organizer: <%= @party.organizer %></P>
 	<p>Who are going: </p>
 	<ul>
 		<% @party.users.each do |f| %>
@@ -21,6 +22,10 @@
 	  	<%= f.hidden_field :id %>
 		<%= f.submit "Join the party!", class: "btn btn-primary" %>
 		<% end %>
+	  </div>
+	<% elsif @party.organizer == current_user.name %>
+	  <div>
+		<%= button_to "Cancel the Party", party_path(@party.id), method: "delete", class: "btn btn-primary"%>
 	  </div>
 	<% else %>
 	  <div>
