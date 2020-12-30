@@ -1,7 +1,7 @@
 <div>
 	<h3><%= @party.name %></h3>
-	<p>Date: <%= @party.date %></p>
-	<p>Time: <%= @party.time %></p>
+	<p>Date: <%= date_reformatted @party %></p>
+	<p>Time: <%= time_format @party %></p>
 	<p>Location: <%= @party.location %></p>
 	<p>How many people are going: <%= @party.users.count %></p>
 	<% if logged_in? %>

@@ -1,3 +1,4 @@
+<h3>Start Your Own Party!</h3>
 <%= form_for(@party) do |f| %>
 	<%= f.hidden_field :organizer, :value => current_user.name %>
 	<% if @party.errors.any? %>
@@ -15,18 +16,18 @@
 	  </div>
 	<% end %>
   <div class="field">
-	Party name: <%= f.text_field :name %><br>
+	Party name: <%= f.text_field :name %><br><br>
   </div>
   <div class="field">
-	Date: <%= f.date_field :date %><br>
+	Date: <%= f.date_field :date %><br><br>
   </div>
   <div class="field">
-	Time: <%= f.time_field :time %><br>
+	Time: <%= f.time_field :time %><br><br>
   </div>
   <div class="field">
-	Location: <%= f.text_area :location %><br>
+	Location: <%= f.text_area :location %><br><br>
   </div>
   <div class="actions">
-	<%= f.submit %>
+	<%= f.submit class:"btn btn-primary" %>
   </div>
 <% end %>

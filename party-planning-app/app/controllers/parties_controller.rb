@@ -16,6 +16,10 @@ class PartiesController < ApplicationController
 	def show
 		if params[:user_id] 
 			@party = current_user.parties.find(params[:id])
+			if @party == nil
+				flash[:alert] = "You have not joined this party."
+				redirect_to party_path(params[:id])
+			end
 		else
 			@party = Party.find(params[:id])
 		end
