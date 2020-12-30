@@ -7,9 +7,6 @@ class Party < ApplicationRecord
 	has_many :activities
 	has_many :votes
 
-
-
-
 	validates :name, uniqueness: true, presence: true
 	validates :time, presence: true
 	validates :date, presence: true
