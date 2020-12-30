@@ -1,7 +1,7 @@
 <% if logged_in? %>
 	<div>
 		<h3>Hi, <%= current_user.first_name %>!</h3>
-		<p>Find a party that you want to go from the list:</p>
+		<h4>Parties you can join:</h4>
 	</div>
 
 	<div class="list-group">
@@ -12,20 +12,19 @@
 		<% end %>
 	</div>
 
+	<div>
+		<%= link_to "Start Your Own Party!", new_user_party_path(current_user), class: "btn btn-primary", role: "button" %>
+	</div>
+
 <% else %>
 
   <div class="list-group">
+		<h4>Parties you can join:</h4>
 		<% @parties.each do |f| %>
 	    	<a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
 		<% end %>
   </div>
 
-  <div>
-  	<a class="btn btn-primary" href='/login' role="button">Login</a>
-  </div>
+  <%= render 'login' %>
 
-  <div>
-  	<p>Don't have an account?</p>
-  	<a class="btn btn-primary" href='/signup' role="button">Sign Up</a>
-  </div>
-<% end %>
+  <% end %>
