@@ -27,4 +27,11 @@ class User < ApplicationRecord
 		end
 	end
 
+	def num_of_parties_organized(current_user)	
+		num = Party.party_organizer(current_user).count
+		if num > 0
+			"You organized #{num} " + "party".pluralize(num) + ":"
+		end
+	end
+
 end

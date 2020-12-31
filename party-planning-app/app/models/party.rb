@@ -27,6 +27,10 @@ class Party < ApplicationRecord
 		end
 	end
 
+	def self.party_organizer(current_user)
+		where(organizer: current_user.name)
+	end
+
 	
 
 end

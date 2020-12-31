@@ -1,9 +1,9 @@
 class PartiesController < ApplicationController
 
 	def new
-		# if params[:user_id] && !User.exist?(params[:user_id])
-		# 	redirect_to '/login', alert: "User not found."
-		if session[:user_id]
+		if params[:user_id] && !User.exists?(params[:user_id])
+			redirect_to '/login', alert: "User not found."
+		elsif session[:user_id]
 			@user = current_user
 		end
 		@party = Party.new

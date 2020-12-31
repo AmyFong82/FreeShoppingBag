@@ -16,3 +16,11 @@
   		<a class="btn btn-primary" href='/parties' role="button">Explore Parties!</a>
 	</div>
 <% end %>
+
+<div>
+	<p class="fw-bold"><%= @user.num_of_parties_organized(current_user) %></p>
+	<div class="list-group">
+		<% @parties_organized.each do |f| %>
+		    <%= link_to f.name, user_party_path(current_user, f), class: "list-group-item list-group-item-action" %>
+		<% end %>
+</div>
