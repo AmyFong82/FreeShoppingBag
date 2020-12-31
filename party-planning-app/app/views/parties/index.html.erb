@@ -1,26 +1,23 @@
 <% if logged_in? %>
 	<div>
 		<h3>Hi, <%= current_user.first_name %>!</h3>
-		<h4>Parties you can join:</h4>
 	</div>
+<% end %>
 
-	<div class="list-group">
-		<% @parties.each do |f| %>
-			<% if !f.users.include?(current_user) %>
-		    	<a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
-	    	<% end %>
+<p class="fw-bold">Check Out These Parties:</p>
+
+<div class="list-group">
+	<% @parties.each do |f| %>
+		<% if logged_in? %>
+			<% if f.users.exclude?(current_user) %>
+				<a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
+			<% end %>
+		<% else %>
+			<a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
 		<% end %>
-	</div>
+	<% end %>
+</div>
 
-<% else %>
-
-  <div class="list-group">
-		<h4>Parties you can join:</h4>
-		<% @parties.each do |f| %>
-	    	<a><%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %></a>
-		<% end %>
-  </div>
-
-  <%= render 'login' %>
-
-  <% end %>
+<% if !logged_in? %>
+	<%= render 'login' %>
+<% end %>

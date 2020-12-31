@@ -7,4 +7,5 @@ module PartiesHelper
 	def time_format(party)
 	  party.time.to_time.strftime("%l:%M %p")
 	end
+
 end

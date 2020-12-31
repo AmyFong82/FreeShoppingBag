@@ -27,4 +27,6 @@ class Party < ApplicationRecord
 		end
 	end
 
+	
+
 end

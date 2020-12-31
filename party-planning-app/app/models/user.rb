@@ -23,7 +23,7 @@ class User < ApplicationRecord
 		if num == 0
 			"Check out our parties to join."
 		else
-			"You are going to #{num} " + 'party'.pluralize(num) + "."
+			"You are going to #{num} " + 'party'.pluralize(num) + ":"
 		end
 	end
 
