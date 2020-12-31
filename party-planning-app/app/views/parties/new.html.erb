@@ -27,6 +27,22 @@
   <div class="field">
 	Location: <%= f.text_area :location %><br><br>
   </div>
+  <div class="field">
+	Activity: <%= f.collection_check_boxes(:activities, Activity.all, :id, :activities.name) %><br><br>
+  </div>
+  <div class="field">
+	Drinks: <%= f.text_area :drinks %><br><br>
+	Drinks: <%= f.text_area :drinks %><br><br>
+  </div>
+  <div class="field">
+	Food: <%= f.text_area :foods %><br><br>
+	Food: <%= f.text_area :foods %><br><br>
+  </div>
+  <div class="field">
+	Snack: <%= f.text_area :snacks %><br><br>
+	Snack: <%= f.text_area :snacks %><br><br>
+  </div>
+
   <div class="actions">
 	<%= f.submit class:"btn btn-primary" %>
   </div>

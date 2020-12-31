@@ -60,7 +60,7 @@ class PartiesController < ApplicationController
 	private
 
 	def party_params
-		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users)
+		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users, :activities, :drinks, :snacks, :foods)
 	end
 
 end
