@@ -37,6 +37,12 @@ class PartiesController < ApplicationController
 		end
 	end
 
+	def edit
+		if logged_in? && current_user == params[:user_id]
+			@party = Party.find_by(organizer: current_user.name)
+		end
+	end
+
 	def update
 		if params[:user_id]
 			@party = Party.find(params[:id])

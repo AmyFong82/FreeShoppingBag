@@ -8,7 +8,7 @@ Specs:
 		(A) Party has_many users.
 
 - [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
-		(A) Vote belongs_to User
+		(A) Drinks belongs_to Party.
 
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
 		(A) User has_many Snacks through Parties, Food has_many Users through Parties.

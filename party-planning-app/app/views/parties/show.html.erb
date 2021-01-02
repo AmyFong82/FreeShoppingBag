@@ -13,6 +13,30 @@
 		<% end %>
 	</ul>
 	<% end %>
+	<p>Activities:</p>
+	<ul>
+		<% @party.activities.each do |f| %>
+			<li><%= f.name %></li>
+		<% end %>
+	</ul>
+	<p>Drinks:</p>
+	<ul>
+		<% @party.drinks.each do |f| %>
+			<li><%= f.name %></li>
+		<% end %>
+	</ul>
+	<p>Foods:</p>
+	<ul>
+		<% @party.foods.each do |f| %>
+			<li><%= f.name %></li>
+		<% end %>
+	</ul>
+	<p>Snacks:</p>
+	<ul>
+		<% @party.snacks.each do |f| %>
+			<li><%= f.name %></li>
+		<% end %>
+	</ul>
 </div>
 
 <% if logged_in? %>
@@ -25,7 +49,8 @@
 	  </div>
 	<% elsif @party.organizer == current_user.name %>
 	  <div>
-		<%= button_to "Cancel the Party", party_path(@party.id), method: "delete", class: "btn btn-primary"%>
+		<%= button_to "Edit Party", edit_user_party_path(@party.id), method: "edit", class: "btn btn-primary"%>
+		<%= button_to "Cancel Party", party_path(@party.id), method: "delete", class: "btn btn-primary"%>
 	  </div>
 	<% else %>
 	  <div>

@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "time"
     t.string "location"
     t.string "organizer"
+    t.integer "activity_id"
+    t.integer "food_id"
+    t.integer "snack_id"
+    t.integer "drink_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
