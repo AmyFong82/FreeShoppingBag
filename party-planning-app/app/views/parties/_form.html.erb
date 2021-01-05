@@ -43,6 +43,13 @@
   </div>
 
   <div class="field">
+      Activities: <%= f.select(:activity_ids, Activity.all.collect {|p| [ p.name, p.id ] }, 
+                                           { :prompt => "Please select"}, 
+                                           { :multiple => true, :size => 5 }) %>
+  </div>
+
+
+  <div class="field">
 	Food: <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) do |b| %>
 	<div class="form-check">
 		<%= b.label(class: "form-check-label") %>
