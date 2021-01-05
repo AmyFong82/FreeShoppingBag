@@ -10,28 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 8) do
+ActiveRecord::Schema.define(version: 9) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
-    t.integer "party_id"
-    t.integer "vote_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "drinks", force: :cascade do |t|
     t.string "name"
-    t.integer "party_id"
-    t.integer "vote_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
-    t.integer "party_id"
-    t.integer "vote_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,18 +36,27 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "time"
     t.string "location"
     t.string "organizer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "party_activities", force: :cascade do |t|
+    t.integer "party_id"
     t.integer "activity_id"
-    t.integer "food_id"
-    t.integer "snack_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "party_drinks", force: :cascade do |t|
+    t.integer "party_id"
     t.integer "drink_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "snacks", force: :cascade do |t|
-    t.string "name"
+  create_table "party_foods", force: :cascade do |t|
     t.integer "party_id"
-    t.integer "vote_id"
+    t.integer "food_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,17 +74,6 @@ ActiveRecord::Schema.define(version: 8) do
     t.string "phone"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "votes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "party_id"
-    t.integer "food_id"
-    t.integer "snack_id"
-    t.integer "drink_id"
-    t.integer "activity_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

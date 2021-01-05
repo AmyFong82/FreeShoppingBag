@@ -8,7 +8,7 @@ Specs:
 		(A) Party has_many users.
 
 - [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
-		(A) Drinks belongs_to Party.
+		(A) PartyDrink belongs_to Party.
 
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
 		(A) User has_many Snacks through Parties, Food has_many Users through Parties.
@@ -23,7 +23,7 @@ Specs:
 		(A) Added validations to all models.
 
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-	(A) User.name, User.num_of_parties
+	(A) Party.most_popular
 	Not done yet!!
 
 - [x] Include signup
@@ -41,10 +41,10 @@ Specs:
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 	(A) nested resource show: users/1/parties/5
 
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+	(A) nested resource "new" form: users/1/parties/new
 
-
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
 - [ ] The application is pretty DRY

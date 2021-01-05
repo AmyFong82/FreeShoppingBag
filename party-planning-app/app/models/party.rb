@@ -1,11 +1,12 @@
 class Party < ApplicationRecord
 	has_many :user_parties
 	has_many :users, through: :user_parties
-	has_many :snacks
-	has_many :foods
-	has_many :drinks
-	has_many :activities
-	has_many :votes
+	has_many :party_foods
+	has_many :foods, through: :party_foods
+	has_many :party_drinks
+	has_many :drinks, through: :party_drinks
+	has_many :party_activities
+	has_many :activities, through: :party_activities
 
 	validates :name, uniqueness: true, presence: true
 	validates :time, presence: true

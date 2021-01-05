@@ -1,7 +1,6 @@
 class Drink < ApplicationRecord
-	has_many :votes
-	has_and_belongs_to_many :parties
-	has_many :users, through: :parties
+	has_many :party_drinks
+	has_many :parties, through: :party_drinks
 
 	validates :name, uniqueness: true
 end

@@ -1,7 +1,6 @@
 class Activity < ApplicationRecord
-	has_many :votes
-	has_many :parties
-	has_many :users, through: :parties
+	has_many :party_activities
+	has_many :parties, through: :party_activities
 
 	validates :name, uniqueness: true
 end

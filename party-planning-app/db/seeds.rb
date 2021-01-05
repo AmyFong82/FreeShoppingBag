@@ -8,20 +8,16 @@
 
 
 5.times do |i|
-    User.create(first_name: "User-#{i+1}", last_name: "Name", phone: "111-222-333#{i}", email: "#{i+1}@email.com", password: "#{i+1}")
-  	Party.create(organizer: "User-#{i+1} Name", name: "Party-#{i+1}", 
-  				date: "1/#{i+1}/2021", time: "2:00pm", 
-  				location: "#{i+1} Benson Avenue, Brooklyn, NY 11229",
-  				food_id: i+1,
-  				drink_id: i+1,
-  				activity_id: i+1,
-  				snack_id: i+1
-  				)
+    User.create(first_name: "User-#{i+1}", last_name: "Name", 
+      phone: "111-222-333#{i}", email: "#{i+1}@email.com", password: "#{i+1}")
 
-  	Food.create(name: "Dish-#{i+1}", party_id: i+1)
-  	Snack.create(name: "Snack-#{i+1}", party_id: i+1)
-  	Activity.create(name: "Activity-#{i+1}", party_id: i+1)
-  	Drink.create(name: "Drink-#{i+1}", party_id: i+1)
+  	Food.create(name: "Food-#{i+1}")
+  	Activity.create(name: "Activity-#{i+1}")
+  	Drink.create(name: "Drink-#{i+1}")
+end
+
+6.times do |i|
+  Party.create(name: "Party-#{i+1}", date: "2/#{i+1}/2021", time: "2:00pm", location: "#{i+1} Benson Avenue, Brooklyn, NY 11229", organizer: "User-#{i+1} Name")
 end
 
 UserParty.create(user_id: 1, party_id: 1)
@@ -35,4 +31,8 @@ UserParty.create(user_id: 2, party_id: 3)
 UserParty.create(user_id: 3, party_id: 4)
 UserParty.create(user_id: 4, party_id: 5)
 UserParty.create(user_id: 5, party_id: 1)
+
+PartyDrink.create(party_id: 1, drink_id: 1)
+PartyFood.create(party_id: 2, food_id: 1)
+PartyActivity.create(party_id: 3, activity_id: 1)
 
