@@ -34,4 +34,8 @@ class Party < ApplicationRecord
 		where(organizer: current_user.name)
 	end	
 
+	def activities_attributes=(activity)
+		self.activities << Activity.find_or_create_by(name: activity[:name])
+	end
+
 end

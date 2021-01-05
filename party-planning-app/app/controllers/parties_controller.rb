@@ -8,6 +8,8 @@ class PartiesController < ApplicationController
 		end
 		@party = Party.new
 		@party.activities.new
+		@party.foods.new
+		@party.drinks.new
 	end
 
 	def index
@@ -31,7 +33,6 @@ class PartiesController < ApplicationController
 			@party = Party.new(party_params)
 			if @party.save
 				@party.users << current_user
-				# @party.activities << Activity.create(name: params[:party][:activities][][:name])
 				redirect_to party_path(@party)
 			else
 				render :new
@@ -69,7 +70,10 @@ class PartiesController < ApplicationController
 
 	def party_params
 		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users, 
-			:activity_ids => [], :drink_ids => [], :food_ids => [], activities_attributes: [:name])
+			:activity_ids => [], :drink_ids => [], :food_ids => [], 
+			activities_attributes: [:name], 
+			foods_attributes: [:name], 
+			drinks_attributes: [:name])
 	end
 
 end
