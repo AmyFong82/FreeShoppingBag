@@ -33,6 +33,9 @@
 	<%= b.label(class: "form-check-label") %> 
 	<%= b.check_box(class: "form-check-input") %>
 	<% end %><br><br>
+	<%= f.fields_for :activities do |a| %>
+		<%= a.text_field :name %>
+		<% end %>
   </div>
 
   <div class="field">

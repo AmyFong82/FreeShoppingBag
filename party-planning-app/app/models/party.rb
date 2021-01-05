@@ -8,6 +8,8 @@ class Party < ApplicationRecord
 	has_many :party_activities
 	has_many :activities, through: :party_activities
 
+	accepts_nested_attributes_for :activities, :drinks, :foods
+
 	validates :name, uniqueness: true, presence: true
 	validates :time, presence: true
 	validates :date, presence: true
@@ -30,8 +32,6 @@ class Party < ApplicationRecord
 
 	def self.party_organizer(current_user)
 		where(organizer: current_user.name)
-	end
-
-	
+	end	
 
 end
