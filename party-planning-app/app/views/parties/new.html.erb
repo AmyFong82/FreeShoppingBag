@@ -28,16 +28,13 @@
 	Location: <%= f.text_area :location %><br><br>
   </div>
   <div class="field">
-	Activities: <%= f.collection_check_boxes(:activities, Activity.all, :id, :name) %><br><br>
+	Activities: <%= f.collection_check_boxes(:activity_ids, Activity.all, :id, :name) %><br><br>
   </div>
   <div class="field">
-	Foods: <%= f.collection_check_boxes(:foods, Food.all, :id, :name) %><br><br>
+	Foods: <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) %><br><br>
   </div>
   <div class="field">
-	Drinks: <%= f.collection_check_boxes(:drinks, Drink.all, :id, :name) %><br><br>
-  </div>
-  <div class="field">
-	Snacks: <%= f.collection_check_boxes(:snacks, Snack.all, :id, :name) %><br><br>
+	Drinks: <%= f.collection_check_boxes(:drink_ids, Drink.all, :id, :name) %><br><br>
   </div>
 
   <div class="actions">

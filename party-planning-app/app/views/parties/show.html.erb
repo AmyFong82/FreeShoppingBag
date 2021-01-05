@@ -19,24 +19,25 @@
 			<li><%= f.name %></li>
 		<% end %>
 	</ul>
-	<p>Drinks:</p>
-	<ul>
-		<% @party.drinks.each do |f| %>
-			<li><%= f.name %></li>
-		<% end %>
-	</ul>
-	<p>Foods:</p>
-	<ul>
-		<% @party.foods.each do |f| %>
-			<li><%= f.name %></li>
-		<% end %>
-	</ul>
-	<p>Snacks:</p>
-	<ul>
-		<% @party.snacks.each do |f| %>
-			<li><%= f.name %></li>
-		<% end %>
-	</ul>
+
+	<% if @party.drinks %>
+		<p>Drinks:</p>
+		<ul>
+			<% @party.drinks.each do |f| %>
+				<li><%= f.name %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
+	<% if @party.foods %>
+		<p>Foods:</p>
+		<ul>
+			<% @party.foods.each do |f| %>
+				<li><%= f.name %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
 </div>
 
 <% if logged_in? %>
