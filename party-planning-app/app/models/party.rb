@@ -11,6 +11,7 @@ class Party < ApplicationRecord
 	accepts_nested_attributes_for :activities, :drinks, :foods
 
 	validates :name, uniqueness: true, presence: true
+	validates :description, presence: true
 	validates :time, presence: true
 	validates :date, presence: true
 	validates :location, presence: true
@@ -25,7 +26,7 @@ class Party < ApplicationRecord
 	end
 
 	def address_validation
-		if location.present? && !(/\s[a-zA-Z]{2}\s\d{5}\z/).match?(location) && location.length < 12
+		if !location.present? and !(/\s[a-zA-Z]{2}\s\d{5}\z/).match?(location) and location.length < 12
 			errors.add(:location, "must be a valid US address.")
 		end
 	end

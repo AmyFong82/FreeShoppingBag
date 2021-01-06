@@ -6,7 +6,7 @@
 	<p>How many people are going: <%= @party.users.count %></p>
 	<% if logged_in? %>
 	<P>Organizer: <%= @party.organizer %></P>
-	<p>Who are going: </p>
+	<p>Attendees: </p>
 	<ul>
 		<% @party.users.each do |f| %>
 			<li><%= f.name %></li>

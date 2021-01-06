@@ -8,16 +8,16 @@ Specs:
 		(A) Party has_many users.
 
 - [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
-		(A) PartyDrink belongs_to Party.
+		(A) Party belongs_to Category.
 
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
-		(A) User has_many Snacks through Parties, Food has_many Users through Parties.
+		(A) User has_many Parties through Tickets, Parties has_many Users through Tickets.
 
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
-		(A) User has_many Snacks through Parties, Snack has_many Users through Parties.
+		(A) User has_many Parties through Tickets, Parties has_many Users through Tickets.
 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
-		(A) User can submit party.name, party.date, party.location.
+		(A) User can submit ticket.num_of_attendees.
 		
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 		(A) Added validations to all models.
