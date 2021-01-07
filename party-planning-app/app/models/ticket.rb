@@ -1,4 +1,4 @@
-class UserParty < ApplicationRecord
+class Ticket < ApplicationRecord
 	belongs_to :user
 	belongs_to :party
 end

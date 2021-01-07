@@ -1,20 +1,14 @@
 class Party < ApplicationRecord
-	has_many :user_parties
-	has_many :users, through: :user_parties
-	has_many :party_foods
-	has_many :foods, through: :party_foods
-	has_many :party_drinks
-	has_many :drinks, through: :party_drinks
-	has_many :party_activities
-	has_many :activities, through: :party_activities
-
-	accepts_nested_attributes_for :activities, :drinks, :foods
+	has_many :tickets
+	has_many :users, through: :tickets
+	belongs_to :category
 
 	validates :name, uniqueness: true, presence: true
 	validates :description, presence: true
 	validates :time, presence: true
 	validates :date, presence: true
 	validates :location, presence: true
+	validates :category, presence: true
 
 	validate :date_cannot_be_in_the_past
 	validate :address_validation
