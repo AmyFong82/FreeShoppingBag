@@ -33,7 +33,7 @@ class Party < ApplicationRecord
 	end
 
 	def total_num_of_attendees
-		self.tickets.sum(&:num_of_attendees)
+		self.tickets.sum(&:num_of_attendees) + 1
 	end
 
 end
