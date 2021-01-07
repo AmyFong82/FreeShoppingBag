@@ -3,7 +3,7 @@
 	<p>Date: <%= date_reformatted @party %></p>
 	<p>Time: <%= time_format @party %></p>
 	<p>Location: <%= @party.location %></p>
-	<p>How many people are going: <%= @party.users.count %></p>
+	<p>How many people are going: <%= @party.total_num_of_attendees %></p>
 	<% if logged_in? %>
 	<P>Organizer: <%= @party.organizer %></P>
 	<p>Attendees: </p>

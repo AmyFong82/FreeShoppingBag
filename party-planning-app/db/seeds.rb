@@ -29,6 +29,11 @@ Category.create(name: "Farewell")
 end
 
 #create 5 tickets for 5 parties
+Ticket.create(user_id: 1, party_id: 1, num_of_attendees: 1)
+Ticket.create(user_id: 2, party_id: 2, num_of_attendees: 1)
+Ticket.create(user_id: 3, party_id: 3, num_of_attendees: 1)
+Ticket.create(user_id: 4, party_id: 4, num_of_attendees: 1)
+Ticket.create(user_id: 5, party_id: 5, num_of_attendees: 1)
 Ticket.create(user_id: 1, party_id: 2, num_of_attendees: 3)
 Ticket.create(user_id: 2, party_id: 3, num_of_attendees: 2)
 Ticket.create(user_id: 3, party_id: 4, num_of_attendees: 4)
