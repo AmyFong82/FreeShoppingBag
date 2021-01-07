@@ -32,4 +32,8 @@ class Party < ApplicationRecord
 		self.activities << Activity.find_or_create_by(name: activity[:name])
 	end
 
+	def total_num_of_attendees
+		self.tickets.sum(&:num_of_attendees)
+	end
+
 end

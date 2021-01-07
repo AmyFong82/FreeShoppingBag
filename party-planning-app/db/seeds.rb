@@ -23,10 +23,11 @@ Category.create(name: "Farewell")
 
 
 6.times do |i|
-  Party.create(name: "Party-#{i+1}", date: "2/#{i+1}/2021", time: "2:00pm", 
-  	location: "#{i+1} Benson Avenue, Brooklyn, NY 11229", organizer: "User-#{i+1} Name", category_id: i+1,
+  Party.create(name: "Party-#{i}", date: "2/#{i+1}/2021", time: "2:00pm", 
+  	location: "#{i+1} Benson Avenue, Brooklyn, NY 11229", organizer: "User-#{i} Name", category_id: i+1,
   	description: "Party description here.")
 end
+
 
 5.times do |i|
 	Ticket.create(user_id: i+1, party_id: i+1, num_of_attendees: i+1)
