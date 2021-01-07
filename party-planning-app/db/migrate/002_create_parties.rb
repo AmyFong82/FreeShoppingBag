@@ -7,6 +7,7 @@ class CreateParties < ActiveRecord::Migration[6.0]
       t.string :time
       t.string :location
       t.string :organizer
+      t.integer :category_id
 
       t.timestamps
     end

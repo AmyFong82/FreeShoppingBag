@@ -8,7 +8,6 @@ class Party < ApplicationRecord
 	validates :time, presence: true
 	validates :date, presence: true
 	validates :location, presence: true
-	validates :category, presence: true
 
 	validate :date_cannot_be_in_the_past
 	validate :address_validation
@@ -20,7 +19,7 @@ class Party < ApplicationRecord
 	end
 
 	def address_validation
-		if !location.present? and !(/\s[a-zA-Z]{2}\s\d{5}\z/).match?(location) and location.length < 12
+		if location.present? and !(/\s[a-zA-Z]{2}\s\d{5}\z/).match?(location) and location.length < 12
 			errors.add(:location, "must be a valid US address.")
 		end
 	end

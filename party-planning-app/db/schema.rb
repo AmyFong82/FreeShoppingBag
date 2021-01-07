@@ -10,21 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 9) do
+ActiveRecord::Schema.define(version: 4) do
 
-  create_table "activities", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "drinks", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "foods", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -32,38 +20,20 @@ ActiveRecord::Schema.define(version: 9) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.string "date"
     t.string "time"
     t.string "location"
     t.string "organizer"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "party_activities", force: :cascade do |t|
-    t.integer "party_id"
-    t.integer "activity_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "party_drinks", force: :cascade do |t|
-    t.integer "party_id"
-    t.integer "drink_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "party_foods", force: :cascade do |t|
-    t.integer "party_id"
-    t.integer "food_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_parties", force: :cascade do |t|
+  create_table "tickets", force: :cascade do |t|
     t.integer "user_id"
     t.integer "party_id"
+    t.integer "num_of_attendees"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
