@@ -13,30 +13,9 @@
 		<% end %>
 	</ul>
 	<% end %>
-	<p>Activities:</p>
-	<ul>
-		<% @party.activities.each do |f| %>
-			<li><%= f.name %></li>
-		<% end %>
-	</ul>
+	<h6>Description:</h6>
+	<p><%= @party.description %></p>
 
-	<% if @party.drinks %>
-		<p>Drinks:</p>
-		<ul>
-			<% @party.drinks.each do |f| %>
-				<li><%= f.name %></li>
-			<% end %>
-		</ul>
-	<% end %>
-
-	<% if @party.foods %>
-		<p>Foods:</p>
-		<ul>
-			<% @party.foods.each do |f| %>
-				<li><%= f.name %></li>
-			<% end %>
-		</ul>
-	<% end %>
 
 </div>
 

@@ -7,9 +7,7 @@ class PartiesController < ApplicationController
 			@user = current_user
 		end
 		@party = Party.new
-		@party.activities.new
-		@party.foods.new
-		@party.drinks.new
+
 	end
 
 	def index
@@ -69,11 +67,7 @@ class PartiesController < ApplicationController
 	private
 
 	def party_params
-		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users, 
-			:activity_ids => [], :drink_ids => [], :food_ids => [], 
-			activities_attributes: [:name], 
-			foods_attributes: [:name], 
-			drinks_attributes: [:name])
+		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users, :description, :category_id)
 	end
 
 end
