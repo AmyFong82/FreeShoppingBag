@@ -1,5 +1,6 @@
 <%= form_for(@party) do |f| %>
 	<%= f.hidden_field :organizer, :value => current_user.name %>
+	<%= f.hidden_field :tickets[:num_of_attendees], :value => 1 %>
 	<% if @party.errors.any? %>
 	  <div id="error_explanation">
 	    <h2>
@@ -37,6 +38,9 @@
   </div>
   <div class="field">
 	Description: <%= f.text_area :description %><br><br>
+  </div>
+  <div class="field">
+	Max Attendees: <%= f.number_field :max_num_of_attendees %><br><br>
   </div>
 
 

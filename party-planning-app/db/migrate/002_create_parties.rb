@@ -7,6 +7,7 @@ class CreateParties < ActiveRecord::Migration[6.0]
       t.string :time
       t.string :location
       t.string :organizer
+      t.integer :max_num_of_attendees
       t.integer :category_id
 
       t.timestamps

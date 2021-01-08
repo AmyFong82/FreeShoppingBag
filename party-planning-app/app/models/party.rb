@@ -7,6 +7,7 @@ class Party < ApplicationRecord
 	validates :description, presence: true
 	validates :time, presence: true
 	validates :date, presence: true
+	validates :category, presence: true
 
 	validate :date_cannot_be_in_the_past
 	validate :address_validation
@@ -41,6 +42,10 @@ class Party < ApplicationRecord
 
 	def category_name
 		self.category ? self.category.name : nil
+	end
+
+	def tickets_available
+		self.max_num_of_attendees - total_num_of_attendees
 	end
 
 end

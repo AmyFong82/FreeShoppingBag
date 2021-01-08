@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.string "time"
     t.string "location"
     t.string "organizer"
+    t.integer "max_num_of_attendees"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

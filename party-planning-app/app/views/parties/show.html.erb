@@ -5,6 +5,7 @@
 	<p>Time: <%= time_format @party %></p>
 	<p>Location: <%= @party.location %></p>
 	<p>How many people are going: <%= @party.total_num_of_attendees %></p>
+	<p>Tickets available: <%= @party.tickets_available %></p>
 	<% if logged_in? %>
 	<P>Organizer: <%= @party.organizer %></P>
 	<p>Attendees: </p>
@@ -35,6 +36,8 @@
 	  </div>
 	<% else %>
 	  <div>
+	  	<p>You've got a ticket for <%= num = @num_of_attendees %> <%= 'person'.pluralize(num) %>. </p>
+		<%= button_to "Edit ticket.", user_party_path(@party.id), method: "update", class: "btn btn-primary"%>
 		<%= button_to "Can't make it.", user_party_path(@party.id), method: "delete", class: "btn btn-primary"%>
 	  </div>
 	<% end %>

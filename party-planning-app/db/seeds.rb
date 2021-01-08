@@ -25,7 +25,7 @@ Category.create(name: "Farewell Party")
 6.times do |i|
   Party.create(name: "Party-#{i}", date: "2/#{i+1}/2021", time: "2:00pm", 
   	location: "#{i+1} Benson Avenue, Brooklyn, NY 11229", organizer: "User-#{i} Name", category_id: i+1,
-  	description: "Party description here.")
+  	description: "Party description here.", max_num_of_attendees: 20)
 end
 
 #create 5 tickets for 5 parties

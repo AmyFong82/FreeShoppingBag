@@ -17,6 +17,8 @@ class PartiesController < ApplicationController
 	def show
 		if params[:user_id] 
 			@party = current_user.parties.find(params[:id])
+			@ticket = Ticket.find_by(party_id: @party.id, user_id: current_user.id)
+			@num_of_attendees = @ticket.num_of_attendees
 			if @party == nil
 				flash[:alert] = "You have not joined this party."
 				redirect_to party_path(params[:id])
@@ -67,7 +69,7 @@ class PartiesController < ApplicationController
 	private
 
 	def party_params
-		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users, :description, :category_name)
+		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users, :description, :category_name, :tickets[:num_of_attendees])
 	end
 
 end
