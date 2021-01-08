@@ -8,7 +8,7 @@
 	<p>Tickets available: <%= @party.tickets_available %></p>
 	<% if logged_in? %>
 	<P>Organizer: <%= @party.organizer %></P>
-	<p>Attendees: </p>
+	<p>Attendees include: </p>
 	<ul>
 		<% @party.users.each do |f| %>
 			<li><%= f.name %></li>
@@ -17,16 +17,15 @@
 	<% end %>
 	<h6>Description:</h6>
 	<p><%= @party.description %></p>
-
-
 </div>
 
 <% if logged_in? %>
 	<% if !@party.users.include?(current_user) %>
 	  <div>
-	  	<%= form_for(@party, url: user_party_path(current_user)) do |f| %>
-	  	<%= f.hidden_field :id %>
-		<%= f.submit "Join the party!", class: "btn btn-primary" %>
+	  	<h3>Get Your Tickets here:</h3>
+		<%= form_for @ticket, url: user_party_tickets_path(@party, current_user), method: "post" do |f| %>
+		  	Number of Attendees: <%= f.number_field :num_of_attendees, in: 1...6 %>
+			<%= f.submit "Join the party!", class: "btn btn-primary" %>
 		<% end %>
 	  </div>
 	<% elsif @party.organizer == current_user.name %>
@@ -37,7 +36,7 @@
 	<% else %>
 	  <div>
 	  	<p>You've got a ticket for <%= num = @num_of_attendees %> <%= 'person'.pluralize(num) %>. </p>
-		<%= button_to "Edit ticket.", user_party_path(@party.id), method: "update", class: "btn btn-primary"%>
+		<%= button_to "Edit ticket.", edit_user_party_path(@party.id), class: "btn btn-primary"%>
 		<%= button_to "Can't make it.", user_party_path(@party.id), method: "delete", class: "btn btn-primary"%>
 	  </div>
 	<% end %>

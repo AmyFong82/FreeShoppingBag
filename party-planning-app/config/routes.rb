@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-resources :users do
+	resources :users do
+		resources :parties do
+			resources :tickets
+		end
+	end
+
 	resources :parties
-end
 
-resources :parties
+	root "users#home"
 
-resources :votes
+	get "/signup" => "users#new"
 
-root "users#home"
+	get '/login' => "sessions#new"
+	post '/login' => 'sessions#create'
 
-get "/signup" => "users#new"
-
-get '/login' => "sessions#new"
-post '/login' => 'sessions#create'
-
-post '/logout' => 'sessions#destroy'
+	post '/logout' => 'sessions#destroy'
 
 end

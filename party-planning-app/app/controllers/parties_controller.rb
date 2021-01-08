@@ -25,6 +25,7 @@ class PartiesController < ApplicationController
 			end
 		else
 			@party = Party.find(params[:id])
+			@ticket = Ticket.new
 		end
 	end
 
@@ -32,7 +33,7 @@ class PartiesController < ApplicationController
 		if logged_in?
 			@party = Party.new(party_params)
 			if @party.save
-				@party.users << current_user
+				# @party.users << current_user
 				redirect_to party_path(@party)
 			else
 				render :new
