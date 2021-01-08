@@ -1,5 +1,6 @@
 <div>
 	<h3><%= @party.name %></h3>
+	<p>Party Type: <%= @party.category_name %></p>
 	<p>Date: <%= date_reformatted @party %></p>
 	<p>Time: <%= time_format @party %></p>
 	<p>Location: <%= @party.location %></p>

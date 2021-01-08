@@ -13,13 +13,13 @@
 end
 
 #create 7 party categories
-Category.create(name: "Birthday")
-Category.create(name: "Dance")
-Category.create(name: "Block")
-Category.create(name: "Pool")
-Category.create(name: "Graduation")
-Category.create(name: "Welcome")
-Category.create(name: "Farewell")
+Category.create(name: "Birthday Party")
+Category.create(name: "Dance Party")
+Category.create(name: "Block Party")
+Category.create(name: "Pool Party")
+Category.create(name: "Graduation Party")
+Category.create(name: "Welcome Party")
+Category.create(name: "Farewell Party")
 
 
 6.times do |i|
