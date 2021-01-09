@@ -59,7 +59,8 @@ class PartiesController < ApplicationController
 		if params[:user_id]
 			@party = current_user.parties.find(params[:id])
 			current_user.parties.delete(@party)
-			redirect_to user_path(current_user)
+			flash[:alert] = "You just gave up tickets to this party."
+			redirect_to party_path(@party)
 		else
 			@party = Party.find(params[:id])
 			Party.delete(@party)

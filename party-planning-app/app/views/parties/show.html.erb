@@ -1,4 +1,10 @@
 <div>
+	<% if flash[:alert] %>
+	<h5><%= flash[:alert] %></h5>
+	<% end %>
+</div>
+
+<div>
 	<h3><%= @party.name %></h3>
 	<p>Party Type: <%= @party.category_name %></p>
 	<p>Date: <%= date_reformatted @party %></p>
@@ -41,7 +47,7 @@
 			  	Number of Attendees: <%= f.number_field :num_of_attendees, in: 1...6, value: @ticket.num_of_attendees %>
 				<%= f.submit class: "btn btn-primary" %>
 			<% end %>
-		<%= button_to "Can't Make It", user_party_path(@party.id), method: "delete", class: "btn btn-primary"%>
+		<%= button_to "Can't Make It", user_party_path(@party.id), method: "delete", class: "btn btn-danger"%>
 	  </div>
 	<% end %>
 <% else %>
