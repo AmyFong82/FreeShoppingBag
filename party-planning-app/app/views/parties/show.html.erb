@@ -22,7 +22,7 @@
 <% if logged_in? %>
 	<% if !@party.users.include?(current_user) %>
 	  <div>
-	  	<h3>Get Your Tickets here:</h3>
+	  	<h3>Get Your Tickets Here:</h3>
 		<%= form_for @ticket, url: user_party_tickets_path(current_user, @party), method: "post" do |f| %>
 		  	Number of Attendees: <%= f.number_field :num_of_attendees, in: 1...6 %>
 			<%= f.submit "Join the party!", class: "btn btn-primary" %>
@@ -35,9 +35,13 @@
 	  </div>
 	<% else %>
 	  <div>
-	  	<p>You've got a ticket for <%= num = @num_of_attendees %> <%= 'person'.pluralize(num) %>. </p>
-		<%= button_to "Edit ticket.", edit_user_party_path(@party.id), class: "btn btn-primary"%>
-		<%= button_to "Can't make it.", user_party_path(@party.id), method: "delete", class: "btn btn-primary"%>
+	  	<h3>Here's Your Ticket:</h3>
+  		  	<h5>You've got a ticket for <%= num = @num_of_attendees %> <%= 'person'.pluralize(num) %>. </h5>
+			<%= form_for @ticket, url: user_party_ticket_path(current_user, @party, @ticket), method: "patch" do |f| %>
+			  	Number of Attendees: <%= f.number_field :num_of_attendees, in: 1...6, value: @ticket.num_of_attendees %>
+				<%= f.submit class: "btn btn-primary" %>
+			<% end %>
+		<%= button_to "Can't Make It", user_party_path(@party.id), method: "delete", class: "btn btn-primary"%>
 	  </div>
 	<% end %>
 <% else %>
