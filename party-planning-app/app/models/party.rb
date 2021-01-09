@@ -48,4 +48,6 @@ class Party < ApplicationRecord
 		self.max_num_of_attendees - total_num_of_attendees
 	end
 
+
+
 end

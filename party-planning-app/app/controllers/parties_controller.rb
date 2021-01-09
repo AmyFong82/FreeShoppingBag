@@ -7,7 +7,7 @@ class PartiesController < ApplicationController
 			@user = current_user
 		end
 		@party = Party.new
-
+		@ticket = Ticket.new
 	end
 
 	def index
@@ -33,7 +33,7 @@ class PartiesController < ApplicationController
 		if logged_in?
 			@party = Party.new(party_params)
 			if @party.save
-				# @party.users << current_user
+				@ticket = Ticket.create(party_id: @party.id, user_id: current_user.id, num_of_attendees: 1)
 				redirect_to party_path(@party)
 			else
 				render :new
@@ -64,6 +64,7 @@ class PartiesController < ApplicationController
 		else
 			@party = Party.find(params[:id])
 			Party.delete(@party)
+			flash[:alert] = "You just gave up tickets to this party."
 			redirect_to user_path(current_user)
 		end
 	end
@@ -71,7 +72,7 @@ class PartiesController < ApplicationController
 	private
 
 	def party_params
-		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users, :description, :category_name, :tickets[:num_of_attendees])
+		params.require(:party).permit(:id, :name, :date, :time, :location, :organizer, :users, :description, :category_name, :max_num_of_attendees)
 	end
 
 end
