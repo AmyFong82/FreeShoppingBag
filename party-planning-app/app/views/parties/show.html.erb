@@ -23,7 +23,7 @@
 	<% if !@party.users.include?(current_user) %>
 	  <div>
 	  	<h3>Get Your Tickets here:</h3>
-		<%= form_for @ticket, url: user_party_tickets_path(@party, current_user), method: "post" do |f| %>
+		<%= form_for @ticket, url: user_party_tickets_path(current_user, @party), method: "post" do |f| %>
 		  	Number of Attendees: <%= f.number_field :num_of_attendees, in: 1...6 %>
 			<%= f.submit "Join the party!", class: "btn btn-primary" %>
 		<% end %>

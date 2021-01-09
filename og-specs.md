@@ -5,7 +5,7 @@ Specs:
 		(A) I am using the rails gem.
 
 - [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes) 
-		(A) Party has_many users.
+		(A) Party has_many Tickets.
 
 - [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
 		(A) Party belongs_to Category.
@@ -20,7 +20,7 @@ Specs:
 		(A) User can submit ticket.num_of_attendees.
 		
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-		(A) Added validations to user and party models.
+		(A) Validations to user and party models.
 
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 	(A) Party.most_popular
