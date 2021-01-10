@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 4) do
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "date"
-    t.string "time"
+    t.date "date"
+    t.time "time"
     t.string "location"
     t.string "organizer"
     t.integer "max_num_of_attendees"

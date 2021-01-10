@@ -4,16 +4,12 @@ class Party < ApplicationRecord
 	belongs_to :category
 
 	validates :name, uniqueness: true, presence: true
-	validates :description, presence: true
-	validates :time, presence: true
-	validates :date, presence: true
-	validates :category, presence: true
 
 	validate :date_cannot_be_in_the_past
 	validate :address_validation
 
 	def date_cannot_be_in_the_past
-	    if date.present? && DateTime.parse(date) < Date.today
+	    if date.present? && date < Date.today
 	      errors.add(:date, "can't be in the past")
 	    end
 	end

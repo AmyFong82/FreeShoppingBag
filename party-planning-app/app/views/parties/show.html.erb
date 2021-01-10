@@ -36,7 +36,7 @@
 	  </div>
 	<% elsif @party.organizer == current_user.name %>
 	  <div>
-		<%= button_to "Edit Party", edit_user_party_path(@party.id), method: "edit", class: "btn btn-primary"%>
+		<%= link_to "Edit Party", edit_user_party_path(@party.id), class: "btn btn-primary"%>
 		<%= button_to "Cancel Party", party_path(@party.id), method: "delete", data: {confirm: "Are you sure?"}, class: "btn btn-primary"%>
 	  </div>
 	<% else %>

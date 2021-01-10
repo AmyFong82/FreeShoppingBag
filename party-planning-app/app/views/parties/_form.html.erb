@@ -16,7 +16,7 @@
 	<% end %>
 
   <div class="field">
-	Party Type: <%= f.text_field :category_name, list: "categories_autocomplete" %>
+	Party Type: <%= f.text_field :category_name, list: "categories_autocomplete", :required => true %>
 	  <datalist id="categories_autocomplete">
 	    <% Category.all.each do |category| %>
 	      <option value="<%= category.name %>">
@@ -24,22 +24,22 @@
 	  </datalist>
   </div>
   <div class="field">
-	Party Name: <%= f.text_field :name %><br><br>
+	Party Name: <%= f.text_field :name, :required => true %><br><br>
   </div>
   <div class="field">
-	Date: <%= f.date_field :date %><br><br>
+	Date: <%= f.date_field :date , :required => true %><br><br>
   </div>
   <div class="field">
-	Time: <%= f.time_field :time %><br><br>
+	Time: <%= f.time_field :time, :required => true %><br><br>
   </div>
   <div class="field">
-	Location: <%= f.text_area :location %><br><br>
+	Location: <%= f.text_area :location, :required => true %><br><br>
   </div>
   <div class="field">
-	Description: <%= f.text_area :description %><br><br>
+	Description: <%= f.text_area :description, :required => true %><br><br>
   </div>
   <div class="field">
-	Max Attendees: <%= f.number_field :max_num_of_attendees %><br><br>
+	Max Attendees: <%= f.number_field :max_num_of_attendees, :required => true %><br><br>
   </div>
 
 
