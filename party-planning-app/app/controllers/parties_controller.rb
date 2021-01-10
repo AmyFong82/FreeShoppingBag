@@ -43,15 +43,21 @@ class PartiesController < ApplicationController
 
 	def edit
 		if logged_in? && current_user == User.find(params[:user_id])
-			@party = Party.find_by(organizer: current_user.name)
+			@party = Party.find(params[:id])
 		end
 	end
 
 	def update
-		if params[:user_id]
+		if logged_in?
 			@party = Party.find(params[:id])
-			@party.users << current_user
-			redirect_to user_path(current_user)
+			@party.update(party_params)
+			redirect_to user_party_path(current_user, @party)
+
+			# if params[:user_id]
+			# 	@party = Party.find(params[:id])
+			# 	# @party.users << current_user
+			# 	redirect_to user_party_path(current_user, @party)
+			# end
 		end
 	end
 
