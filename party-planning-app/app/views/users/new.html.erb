@@ -13,23 +13,23 @@
 
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, :required => true %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, :required => true %>
   </div>
   <div class="field">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone, placeholder: "123-456-7890" %><span class="small"> Format: 123-456-7890</span>
+    <%= f.text_field :phone, placeholder: "123-456-7890", :required => true %><span class="small"> Format: 123-456-7890</span>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :required => true %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :required => true %>
   </div>
   <div class="actions">
     <%= f.submit %>
