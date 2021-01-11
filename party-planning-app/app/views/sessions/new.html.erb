@@ -1,13 +1,19 @@
-<% if flash[:alert] %>
-	<%= flash[:alert] %>
-<% end %>
+<%= render "users/alert" %>
 
-<div>
+<div class="mt-5">
 	<%= form_tag("/login", method: "post") do %>
-		<label>Email:</label>
-		<%= text_field_tag "user[email]" %>
-		<label>Password:</label>
-		<%= password_field_tag "user[password]" %>
+	  <div class="mb-3 mx-auto">
+		<label class="form-label">Email:</label>
+		<div>
+			<%= text_field_tag "user[email]"%>
+		</div>
+	  </div>
+	  <div class="mb-3">
+		<label class="form-label">Password:</label>
+		<div>
+			<%= password_field_tag "user[password]" %>
+		</div>
+	  </div>
 		<%= submit_tag "Log In"%>
 	<% end %>
 </div>
