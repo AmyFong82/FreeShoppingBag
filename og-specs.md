@@ -45,6 +45,7 @@ Specs:
 	(A) nested resource "new" form: users/1/parties/new
 
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
+	(A) /users/new, /parties/new
 
 Confirm:
 - [ ] The application is pretty DRY

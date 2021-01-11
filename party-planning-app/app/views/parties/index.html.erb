@@ -1,7 +1,5 @@
 <% if logged_in? %>
-	<div>
-		<h3>Hi, <%= current_user.first_name %>!</h3>
-	</div>
+	<%= render "users/greeting" %>
 <% end %>
 
 <p class="fw-bold">Check Out Upcoming Parties:</p>
