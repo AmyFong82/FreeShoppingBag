@@ -16,6 +16,10 @@
 	<% end %>
 </div>
 
+<div>
+	<%= link_to "The Most Popular Party", parties_most_popular_path, class: "btn btn-primary" %>
+</div>
+
 <% if !logged_in? %>
 	<%= render 'login' %>
 <% end %>

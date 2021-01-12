@@ -20,11 +20,10 @@ class Party < ApplicationRecord
 		end
 	end
 
-	# scope :most_popular, -> {
-	# 	Party.joins(:tickets).group(:party_id).sum(:num_of_attendees)
-	# 	party = group(:party_id).sum(:num_of_attendees).max[1]
-	# 	Party.find(party)
-	# end
+	scope :most_popular, -> {
+		party_id = Party.joins(:tickets).group(:party_id).sum(:num_of_attendees).max_by{|k,v| v}[0]
+		Party.find(party_id)
+	}
 
 	def self.party_organizer(current_user)
 		where(organizer: current_user.name)

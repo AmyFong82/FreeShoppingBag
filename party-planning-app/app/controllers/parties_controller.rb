@@ -14,6 +14,12 @@ class PartiesController < ApplicationController
 		@parties = Party.all
 	end
 
+	def most_popular
+		@party = Party.most_popular
+		@ticket = Ticket.new
+		render "show"
+	end
+
 	def show
 		if params[:user_id] 
 			@party = current_user.parties.find(params[:id])
@@ -52,12 +58,6 @@ class PartiesController < ApplicationController
 			@party = Party.find(params[:id])
 			@party.update(party_params)
 			redirect_to user_party_path(current_user, @party)
-
-			# if params[:user_id]
-			# 	@party = Party.find(params[:id])
-			# 	# @party.users << current_user
-			# 	redirect_to user_party_path(current_user, @party)
-			# end
 		end
 	end
 

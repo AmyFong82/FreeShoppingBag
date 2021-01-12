@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 		end
 	end
 
+	get '/parties/most_popular' => 'parties#most_popular'
+
 	resources :parties
 
 	root "users#home"
@@ -16,5 +18,6 @@ Rails.application.routes.draw do
 	post '/login' => 'sessions#create'
 
 	post '/logout' => 'sessions#destroy'
+
 
 end
