@@ -1,8 +1,4 @@
-<div>
-	<% if flash[:alert] %>
-	<h5><%= flash[:alert] %></h5>
-	<% end %>
-</div>
+<%= render "users/alert" %>
 
 <div>
 	<h3><%= @party.name %></h3>

@@ -69,6 +69,8 @@ class PartiesController < ApplicationController
 			redirect_to party_path(@party)
 		else
 			@party = Party.find(params[:id])
+			tickets = Ticket.where(party_id: @party.id)
+			Ticket.delete(tickets)
 			Party.delete(@party)
 			flash[:alert] = "You have successfully cancelled #{@party.name}."
 			redirect_to user_path(current_user)
