@@ -2,20 +2,14 @@
 
 <%= render "alert" %>
 
-<% if @parties.count > 0 %>
-	<div>
-		 <h3 class="mt-4"> <%= @user.num_of_parties %></h3>
-			<div class="list-group">
-				<% @parties.each do |f| %>
-				    <%= link_to f.name, user_party_path(current_user, f), class: "list-group-item list-group-item-action" %>
-				<% end %>
-			</div>
+<div>
+ 	<h3 class="mt-4"> <%= @user.num_of_parties %></h3>
+	<div class="list-group">
+		<% @parties.each do |f| %>
+		    <%= link_to f.name, user_party_path(current_user, f), class: "list-group-item list-group-item-action" %>
+		<% end %>
 	</div>
-<% else %>
-	<div>
-  		<a class="btn btn-primary" href='/parties' role="button">Explore Parties!</a>
-	</div>
-<% end %>
+</div>
 
 <div>
 	<h3 class="mt-4"><%= @user.num_of_parties_organized(current_user) %></h3>

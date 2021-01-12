@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session.delete :user_id
-		flas[:alert] = "You've successfully logged out."
+		flash[:alert] = "You've successfully logged out."
 		redirect_to '/'
 	end
 

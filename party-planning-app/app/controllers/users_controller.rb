@@ -25,7 +25,11 @@ class UsersController < ApplicationController
 		if logged_in?
 			@user = User.find(session[:user_id])
 			@parties = @user.parties
-			@parties_organized = Party.party_organizer(current_user)
+			if @parties.count == 0
+				redirect_to parties_path
+			else
+				@parties_organized = Party.party_organizer(current_user)
+			end
 		else
 			redirect_to '/login'
 		end

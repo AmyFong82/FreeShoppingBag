@@ -1,6 +1,7 @@
 <%= form_for(@user) do |f| %>
+
   <% if @user.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" role="alert">
       <h2>There were some errors:</h2>
 
       <ul>
@@ -11,28 +12,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name, :required => true %>
   </div>
-  <div class="field">
+  <div class="field mb-3">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name, :required => true %>
   </div>
-  <div class="field">
+  <div class="field mb-3">
     <%= f.label :phone %><br>
     <%= f.text_field :phone, placeholder: "123-456-7890", :required => true %><span class="small"> Format: 123-456-7890</span>
   </div>
-  <div class="field">
+  <div class="field mb-3">
     <%= f.label :email %><br>
     <%= f.text_field :email, :required => true %>
   </div>
-  <div class="field">
+  <div class="field mb-3">
     <%= f.label :password %><br>
     <%= f.password_field :password, :required => true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 
