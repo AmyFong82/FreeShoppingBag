@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-	resources :users do
+  match '/auth/github/callback', to: 'sessions#create', via: [:get, :post]
+
+
+  root 'welcome#home'
+
+  	resources :users do
 		resources :parties do
 			resources :tickets
 		end
@@ -9,15 +13,13 @@ Rails.application.routes.draw do
 	get '/parties/most_popular' => 'parties#most_popular'
 
 	resources :parties
-
-	root "users#home"
+	resource :sessions, only: [:new, :create, :destroy]
 
 	get "/signup" => "users#new"
 
 	get '/login' => "sessions#new"
 	post '/login' => 'sessions#create'
 
-	post '/logout' => 'sessions#destroy'
+	post 'logout' => 'sessions#destroy'
 
-	match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 end

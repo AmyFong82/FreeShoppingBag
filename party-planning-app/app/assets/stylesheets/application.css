@@ -34,3 +34,7 @@
  .attendees_list_title {
  	margin-bottom: 0;
  }
+
+.d-block {
+	width: 200px;
+}
