@@ -5,8 +5,13 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		if params[:user][:email]
-			user = User.find_by(email: params[:user][:email])
+		if auth
+			@user = User.find_or_create_by(name: auth['info']['name'], email: 'github', phone: auth['info']['phone'])
+			session[:user_id] = @user.id
+		    current_user = @user
+		    redirect_to parties_path
+		elsif params[:user][:name]
+			user = User.find_by(name: params[:user][:name])
 			if user
 				if user.authenticate(params[:user][:password])
 					session[:user_id] = user.id
@@ -19,12 +24,6 @@ class SessionsController < ApplicationController
 				flash[:alert] = "This email is not registered."
 				redirect_to '/login'
 			end
-		else
-			@user = User.find_or_create_by(email: auth['info']['email'], 
-					first_name: auth['info']['name'][0])
-			session[:user_id] = @user.id
-		    self.current_user = @user
-		    redirect_to parties_path
 		end
 	end
 

@@ -8,8 +8,8 @@
 
 
 5.times do |i|
-    User.create(first_name: "User-#{i+1}", last_name: "Name", 
-      phone: "111-222-333#{i}", email: "#{i+1}@email.com", password: "#{i+1}")
+    User.create(name: "User#{i+1}", 
+    	phone: "111-222-333#{i}", email: "#{i+1}@email.com", password: "#{i+1}")
 end
 
 #create 7 party categories
@@ -24,7 +24,7 @@ Category.create(name: "Farewell Party")
 
 6.times do |i|
   Party.create(name: "Party-#{i}", date: "2/#{i+1}/2021", time: "2:00pm", 
-  	location: "#{i+1} Benson Avenue, Brooklyn, NY 11229", organizer: "User-#{i} Name", category_id: i+1,
+  	location: "#{i+1} Benson Avenue, Brooklyn, NY 11229", organizer: "User#{i}", category_id: i+1,
   	description: "Party description here.", max_num_of_attendees: 20)
 end
 
