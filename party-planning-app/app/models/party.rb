@@ -50,5 +50,4 @@ class Party < ApplicationRecord
 	end
 
 
-
 end
