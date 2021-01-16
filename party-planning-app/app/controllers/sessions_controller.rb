@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
 	def create
 		if auth
-			@user = User.find_or_create_by(name: auth['info']['name'], email: 'github', phone: auth['info']['phone'])
+			@user = User.find_or_create_by(name: auth['info']['name'])
 			session[:user_id] = @user.id
 		    current_user = @user
 		    redirect_to parties_path

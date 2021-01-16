@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 			@user = User.find(session[:user_id])
 			@parties = @user.parties
 			if @parties.count == 0
+				flash[:alert] = "You have not joined any parties."
 				redirect_to parties_path
 			else
 				@parties_organized = Party.party_organizer(current_user)
@@ -39,6 +40,6 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:first_name, :last_name, :phone, :email, :password)
+		params.require(:user).permit(:name, :phone, :email, :password)
 	end
 end
