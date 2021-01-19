@@ -4,8 +4,7 @@ class User < ApplicationRecord
 
 	has_secure_password
 
-	# validates :email, uniqueness: true, allow_nil: true
-	# validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "must match the required format." }, allow_nil: true
+	validates :email, uniqueness: true, allow_nil: true
 
 	def num_of_parties
 		num = self.parties.count

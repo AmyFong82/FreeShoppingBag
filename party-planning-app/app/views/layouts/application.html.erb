@@ -23,16 +23,22 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse position-relative" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="navbar-brand" href="<%= root_url %>parties">Explore</a>
             <% if logged_in? %>
               <%= link_to("My Parties", user_path(current_user), class:"navbar-brand") %>
               <%= link_to "Log Out", '/logout', class:"navbar-brand", method: 'post' %>
-              <%= link_to "Start Your Own Party!", new_user_party_path(current_user), class:"btn btn-warning", role: "button" %>
+              <div class="float-end">
+                <%= link_to "Start Your Own Party!", new_user_party_path(current_user), class: "btn btn-warning position-absolute top-0 end-50", role: "button" %>
+              </div>
             <% else %>
               <a class="navbar-brand" href="<%= root_url %>signup">Sign Up</a>
               <a class="navbar-brand" href="<%= root_url %>login">Log In</a>
+              <div class="float-end">
+              <%= link_to 'Sign in with GitHub', '/auth/github', class: "position-absolute top-0 end-0 btn btn-primary d-block m-auto"%>
+              </div>
+
             <% end %>
           </div>
         </div>

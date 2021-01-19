@@ -8,8 +8,7 @@
 
 
 5.times do |i|
-    User.create(name: "User#{i+1}", 
-    	phone: "111-222-333#{i}", email: "#{i+1}@email.com", password: "#{i+1}")
+    User.create(name: "User#{i+1}", email: "#{i+1}@email.com", password: "#{i+1}")
 end
 
 #create 7 party categories

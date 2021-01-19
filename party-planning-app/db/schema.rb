@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "phone"
     t.string "email"
     t.string "password_digest"
     t.boolean "github_user", default: false
