@@ -6,11 +6,16 @@ class SessionsController < ApplicationController
 
 	def create
 		if auth
-			@user = User.find_or_create_by(name: auth['info']['name'])
+			@user = User.find_or_create_by(github_uid: auth['uid']) do |u|
+						u.name = auth['info']['name']
+						u.email = auth['info']['email']
+						u.password = auth['uid']+rand().to_s
+						u.github_user = true
+					end
 			session[:user_id] = @user.id
 		    current_user = @user
 		    redirect_to parties_path
-		elsif params[:user][:name]
+		elsif params[:user][:name];
 			user = User.find_by(name: params[:user][:name])
 			if user
 				if user.authenticate(params[:user][:password])
@@ -21,7 +26,7 @@ class SessionsController < ApplicationController
 					redirect_to '/login'
 				end
 			else
-				flash[:alert] = "This email is not registered."
+				flash[:alert] = "This username is not registered."
 				redirect_to '/login'
 			end
 		end

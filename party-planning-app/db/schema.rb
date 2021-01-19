@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 4) do
     t.string "phone"
     t.string "email"
     t.string "password_digest"
+    t.boolean "github_user", default: false
+    t.string "github_uid", default: "N/A"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
