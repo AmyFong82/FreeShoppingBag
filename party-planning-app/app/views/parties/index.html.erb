@@ -14,7 +14,7 @@
 </div>
 
 <div class="list-group">
-	<%= render "users/alert" %>
+	<%= render "category_notice" %>
 	<% @parties.each do |f| %>
 		<% if logged_in? %>
 			<% if f.users.exclude?(current_user) %>
