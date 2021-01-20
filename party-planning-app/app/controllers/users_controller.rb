@@ -15,7 +15,6 @@ class UsersController < ApplicationController
  
 	    if @user.save
 	      session[:user_id] = @user.id
-	      fals
 	      redirect_to user_path(@user)
 	    else
 	      render :new
@@ -27,7 +26,7 @@ class UsersController < ApplicationController
 			@user = User.find(session[:user_id])
 			@parties = @user.parties
 			if @parties.count == 0
-				flash[:alert] = "Explore parties, have some fun!"
+				flash[:alert] = "Welcome to Parties! Explore and have fun!"
 				redirect_to parties_path
 			else
 				@parties_organized = Party.party_organizer(current_user)
