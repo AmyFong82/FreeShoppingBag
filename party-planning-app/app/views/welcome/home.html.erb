@@ -1,6 +1,9 @@
 <%= render "/users/alert" %>
 
 <div class="container-fluid" style="width: 450px; margin:auto; padding-top: 45px;">
-	<%= image_tag("party_home_image.png", width: '450') %>
-	<p class="display-6 fw-bold text-center mt-5">Come Join the Party!</p>
+	<%= link_to image_tag("party_home_image.png", width: '450'), parties_path %>
+</div>
+
+<div class="mt-5">
+	<p class="display-5 text-center"><%= link_to "Come Join the Party!", parties_path, class: " text-decoration-none" %></p>
 </div>

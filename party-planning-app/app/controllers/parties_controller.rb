@@ -12,6 +12,11 @@ class PartiesController < ApplicationController
 
 	def index
 		@parties = Party.all
+
+		if !params[:category].blank?
+	      @parties = Party.by_category(params[:category])
+	 	end
+
 	end
 
 	def most_popular
