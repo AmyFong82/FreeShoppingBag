@@ -14,6 +14,7 @@
 </div>
 
 <div class="list-group">
+	<%= render "users/alert" %>
 	<% @parties.each do |f| %>
 		<% if logged_in? %>
 			<% if f.users.exclude?(current_user) %>
