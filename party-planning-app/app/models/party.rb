@@ -29,7 +29,7 @@ class Party < ApplicationRecord
 
 	#question about this:
 	def self.by_category(category_id)
-	    where(category: category_id)
+	    where(category: category_id)	    
 	end
 
 	def self.party_organizer(current_user)

@@ -15,11 +15,6 @@ class PartiesController < ApplicationController
 
 		if !params[:category].blank?
 	      @parties = Party.by_category(params[:category])
-	      if @parties.count == 0
-	      	flash[:notice] = "There are no parties in this category yet."
-	      else
-	      	flash[:notice] = Category.find(params[:category]).name
-	      end
 	 	end
 
 	end

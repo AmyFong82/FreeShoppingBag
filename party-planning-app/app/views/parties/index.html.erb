@@ -8,13 +8,18 @@
 <div class="mt-3">
   <h6>View Parties by Category:</h6>
   <%= form_tag("/parties", method: "get") do %>
-    <%= select_tag "category", options_from_collection_for_select(Category.all, "id", "name"), include_blank: true, prompt: "Select Category" %>
+    <%= select_tag "category", options_from_collection_for_select(Category.all, "id", "name", selected: params[:category]), 
+    	include_blank: true, prompt: "Select Category" %>
     <%= submit_tag "Filter" %>
   <% end %>
 </div>
 
-<div class="list-group">
-	<%= render "category_notice" %>
+<div class="list-group mt-3">
+	<% if @parties.count == 0 %>
+		<div class="alert alert-warning" role="alert">
+			<P>There are no parties in the category yet.</P>
+		</div>
+	<% end %>
 	<% @parties.each do |f| %>
 		<% if logged_in? %>
 			<% if f.users.exclude?(current_user) %>
