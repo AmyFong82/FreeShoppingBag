@@ -1,17 +1,25 @@
 class PartiesController < ApplicationController
 
+	before_action :require_login
+  	skip_before_action :require_login, only: [:index, :most_popular, :show]
+
 	def new
-		if params[:user_id] && !User.exists?(params[:user_id])
-			redirect_to '/login', alert: "User not found."
-		elsif session[:user_id]
+		if User.find(params[:user_id]) == current_user
 			@user = current_user
+			@party = Party.new
+			@ticket = Ticket.new
+		else
+			flash[:alert] = "You're redirected back to your party page."
+			redirect_to user_path(current_user)
 		end
-		@party = Party.new
-		@ticket = Ticket.new
 	end
 
 	def index
-		@parties = Party.all
+		if params[:user_id] && right_user_by_id?
+			@parties = Party.all
+		else
+			@parties = Party.all
+		end
 
 		if !params[:category].blank?
 	      @parties = Party.by_category(params[:category])
@@ -26,13 +34,17 @@ class PartiesController < ApplicationController
 	end
 
 	def show
-		if params[:user_id] 
-			@party = current_user.parties.find(params[:id])
-			@ticket = Ticket.find_by(party_id: @party.id, user_id: current_user.id)
-			@num_of_attendees = @ticket.num_of_attendees
-			if @party == nil
-				flash[:alert] = "You have not joined this party."
-				redirect_to party_path(params[:id])
+		if logged_in?
+			if User.find(params[:user_id]) == current_user
+				@party = current_user.parties.find(params[:id])
+				@ticket = Ticket.find_by(party_id: @party.id, user_id: current_user.id)
+				@num_of_attendees = @ticket.num_of_attendees				
+				if @party == nil
+					flash[:alert] = "You have not joined this party."
+					redirect_to party_path(params[:id])
+				end
+			else
+				redirect_to user_path(current_user)
 			end
 		else
 			@party = Party.find(params[:id])
@@ -41,29 +53,25 @@ class PartiesController < ApplicationController
 	end
 
 	def create
-		if logged_in?
-			@party = Party.new(party_params)
-			if @party.save
-				@ticket = Ticket.create(party_id: @party.id, user_id: current_user.id, num_of_attendees: 1)
-				redirect_to party_path(@party)
-			else
-				render :new
-			end
+		@party = Party.new(party_params)
+		if @party.save
+			@ticket = Ticket.create(party_id: @party.id, user_id: current_user.id, num_of_attendees: 1)
+			redirect_to user_party_path(current_user, @party)
+		else
+			render :new
 		end
 	end
 
 	def edit
-		if logged_in? && current_user == User.find(params[:user_id])
+		if current_user == User.find(params[:user_id])
 			@party = Party.find(params[:id])
 		end
 	end
 
 	def update
-		if logged_in?
-			@party = Party.find(params[:id])
-			@party.update(party_params)
-			redirect_to user_party_path(current_user, @party)
-		end
+		@party = Party.find(params[:id])
+		@party.update(party_params)
+		redirect_to user_party_path(current_user, @party)
 	end
 
 	def destroy

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :require_login, only: [:show]
 
 	def home
 		if session[:user_id]
@@ -22,17 +23,17 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		if logged_in?
+		if User.exists?(params[:id]) && current_user == User.find(params[:id])
 			@user = User.find(session[:user_id])
 			@parties = @user.parties
 			if @parties.count == 0
-				flash[:alert] = "Welcome to Parties! Explore and have fun!"
+				flash[:alert] = "You have not joined any parties yet. Explore the parties below."
 				redirect_to parties_path
 			else
 				@parties_organized = Party.party_organizer(current_user)
 			end
 		else
-			redirect_to '/login'
+			redirect_to user_path(current_user)
 		end
 	end
 

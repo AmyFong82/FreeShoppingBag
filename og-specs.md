@@ -34,8 +34,8 @@ Specs:
 - [x] Include logout
 	(A) User can logout
 	
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
-
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth)
+	(A) OmniAuth with GitHub
 
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 	(A) nested resource show: users/1/parties/5
@@ -49,5 +49,5 @@ Specs:
 Confirm:
 - [ ] The application is pretty DRY
 - [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
