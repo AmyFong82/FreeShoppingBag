@@ -21,22 +21,13 @@
 		</div>
 	<% end %>
 	<% @parties.each do |f| %>
-		<% if logged_in? %>
-			<% if f.users.exclude?(current_user) %>
-				<%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %>
-			<% end %>
-		<% else %>
-			<%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %>
-		<% end %>
+		<%= link_to f.name, party_path(f), class: "list-group-item list-group-item-action" %>
 	<% end %>
 </div>
 
 <div class="mt-3">
 	<%= link_to "Go To The Most Popular Party!", parties_most_popular_path, class: "btn btn-warning" %>
 </div>
-
-
-
 
 
 <% if !logged_in? %>

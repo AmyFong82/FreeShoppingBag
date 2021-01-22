@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
 	before_action :require_login, only: [:show]
 
-	def home
-		if session[:user_id]
-			redirect_to user_parties_path(current_user)
-		end
-	end
-
 	def new
 		@user = User.new
 	end
@@ -23,7 +17,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		if User.exists?(params[:id]) && current_user == User.find(params[:id])
+		if current_user == User.find(params[:id])
 			@user = User.find(session[:user_id])
 			@parties = @user.parties
 			if @parties.count == 0

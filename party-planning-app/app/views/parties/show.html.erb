@@ -48,7 +48,7 @@
 			  	Number of Attendees: <%= f.number_field :num_of_attendees, in: 1...6, value: @ticket.num_of_attendees %>
 				<%= f.submit class: "btn btn-primary" %>
 			<% end %>
-			<%= button_to "Can't Make It", user_party_path(@party.id), method: "delete", data: {confirm: "Are you sure you want to give up the ticket?"}, class: "btn btn-danger"%>
+			<%= button_to "Can't Make It", user_party_path(current_user, @party.id), method: "delete", data: {confirm: "Are you sure you want to give up the ticket?"}, class: "btn btn-danger"%>
 		</div>
 	  </div>
 	<% end %>

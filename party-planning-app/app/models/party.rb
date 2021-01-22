@@ -56,5 +56,11 @@ class Party < ApplicationRecord
 		self.max_num_of_attendees - total_num_of_attendees
 	end
 
+	def self.parties_not_joined(user)
+		Party.all.select do |f|
+			f.users.exclude?(user)
+		end
+	end
+
 
 end
