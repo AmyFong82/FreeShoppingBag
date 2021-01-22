@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   match '/auth/github/callback', to: 'sessions#create', via: [:get, :post]
 
-
   root 'welcome#home'
 
-  	resources :users do
+  	resources :users, only: [:new, :create, :show] do
 		resources :parties do
-			resources :tickets
+			resources :tickets, only: [:create, :update]
 		end
 	end
 
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
 
 	resources :parties
 	resource :sessions, only: [:new, :create, :destroy]
+
 
 	get "/signup" => "users#new"
 
