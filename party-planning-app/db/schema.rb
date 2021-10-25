@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 2021_01_26_195710) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "venue_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -45,6 +46,12 @@ ActiveRecord::Schema.define(version: 4) do
     t.string "password_digest"
     t.boolean "github_user", default: false
     t.string "github_uid", default: "N/A"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.integer "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
