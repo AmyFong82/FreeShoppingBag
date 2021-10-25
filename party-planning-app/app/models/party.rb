@@ -2,11 +2,21 @@ class Party < ApplicationRecord
 	has_many :tickets
 	has_many :users, through: :tickets
 	belongs_to :category
+	belongs_to :venue
+
+#belongs_to :organizer, classname: "User", foreign_key: "user_id"
+
 
 	validates :name, uniqueness: true, presence: true
 
 	validate :date_cannot_be_in_the_past
 	validate :address_validation
+
+	#question about this scope and the next method under it.
+	scope :most_popular, -> {
+		party_id = Party.joins(:tickets).group(:party_id).sum(:num_of_attendees).max_by{|k,v| v}[0]
+		Party.find(party_id)
+	}
 
 	def date_cannot_be_in_the_past
 	    if date.present? && date < Date.today
@@ -21,11 +31,7 @@ class Party < ApplicationRecord
 	end
 
 
-	#question about this scope and the next method under it.
-	scope :most_popular, -> {
-		party_id = Party.joins(:tickets).group(:party_id).sum(:num_of_attendees).max_by{|k,v| v}[0]
-		Party.find(party_id)
-	}
+
 
 	#question about this:
 	def self.by_category(category_id)

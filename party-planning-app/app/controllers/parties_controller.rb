@@ -68,7 +68,10 @@ class PartiesController < ApplicationController
 
 	def edit
 		if current_user == User.find(params[:user_id])
-			@party = current_user.parties.find(params[:id])
+			@party = Party.find(params[:id])
+		else
+			flash[:alert]
+			redirect_to user_path(current_user)
 		end
 	end
 
